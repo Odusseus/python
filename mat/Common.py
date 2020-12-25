@@ -1,18 +1,24 @@
 import math
 
-def numberToColumnName(number):
- switcher = {
-        1: "a",
-        2: "b",
-        3: "c",
-        4: "d",
-        5: "e",
-        6: "f",
-        7: "g",
-        0: "h"
-    }
- return switcher.get(number % 8,'?')
+def numberToColumnName(number, max): 
+  ALPHABET_BASE = 96
+  MAX_LETTER = 26
+  cycle = math.ceil(max / MAX_LETTER)
 
-def numberToLineNumber(number):
-  line = math.ceil(number / 8)
+  letterNumber = number % max
+  if letterNumber == 0:
+    letterNumber = letterNumber + max + ALPHABET_BASE
+  else:
+    letterNumber = letterNumber + ALPHABET_BASE
+ 
+  letter = chr(letterNumber)
+  letters = repeatToLength(letter, cycle)
+  return letters
+
+def numberToLineNumber(number, max):
+  line = math.ceil(number / max)
   return line
+
+def repeatToLength(string_to_expand, length):
+  #return string_to_expand
+  return (string_to_expand * (int)((length/len(string_to_expand))+1))[:length]
