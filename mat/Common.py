@@ -20,5 +20,4 @@ def numberToLineNumber(number, max):
   return line
 
 def repeatToLength(string_to_expand, length):
-  #return string_to_expand
   return (string_to_expand * (int)((length/len(string_to_expand))+1))[:length]
