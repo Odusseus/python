@@ -1,5 +1,5 @@
+import unittest
 import Common    # The code to test
-import unittest   # The test framework
 
 class Test_numberToColumnName(unittest.TestCase):
     def test_increment(self):

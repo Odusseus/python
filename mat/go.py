@@ -1,5 +1,6 @@
+import Constant
 from Board import Board
-board = Board('First', 8)
+board = Board('First', Constant.MAX_ELEMENT)
 print('Allo, allo my name is ' + board.name)
 print('I have ' + str(board.maxField()) + ' fields')
 
