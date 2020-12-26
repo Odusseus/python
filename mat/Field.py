@@ -13,19 +13,44 @@ class Field:
   def name(self):
     return self.columnName + str(self.lineName)
 
-  def numberToColor(self, number):
-    lineNumber = math.ceil(number/Constant.MAX_ELEMENT)
-    lineParity = lineNumber % 2
-
-    if (number % 2 == 0) :
-      if lineParity == 0:
-        color = Color(0) 
-      else:
-        color = Color(1)
+  def numberToColor(self, number, maxElement = Constant.MAX_ELEMENT):
+    lineNumber = math.ceil(number/maxElement)
+    if maxElement % 2 == 1:
+      maxElementOdd = True
     else:
-      if lineParity == 0:
-        color = Color(1) 
+      maxElementOdd = False
+
+    if lineNumber % 2 == 1:
+      lineOdd = True
+    else:
+      lineOdd = False
+
+    if number % 2 == 1:
+      numberOdd = True
+    else:
+      numberOdd = False
+
+    if maxElementOdd:
+      if lineOdd:
+        if numberOdd:
+          color = Color(0)
+        else:
+          color = Color(1)
       else:
-        color = Color(0)
+        if numberOdd:
+          color = Color(1) 
+        else:
+          color = Color(0)
+    else:
+      if lineOdd:
+        if numberOdd:
+          color = Color(0)
+        else:
+          color = Color(1)
+      else:
+        if numberOdd:
+          color = Color(1) 
+        else:
+          color = Color(0)
     return color
   

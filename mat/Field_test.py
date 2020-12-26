@@ -11,6 +11,9 @@ def test_numberToColor():
   assert field.numberToColor(7).number == 0
   assert field.numberToColor(8).number == 1
   assert field.numberToColor(9).number == 1
+  assert field.numberToColor(1, 9).number == 0
+  assert field.numberToColor(9, 9).number == 0
+  assert field.numberToColor(10, 9).number == 0
   assert field.numberToColor(10).number == 0
   assert field.numberToColor(11).number == 1
   assert field.numberToColor(12).number == 0
