@@ -21,3 +21,6 @@ def numberToLineNumber(number, max):
 
 def repeatToLength(string_to_expand, length):
   return (string_to_expand * (int)((length/len(string_to_expand))+1))[:length]
+
+def getFieldnumber(line, column, max):
+  return ((line - 1) * max) + column

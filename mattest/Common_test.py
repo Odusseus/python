@@ -83,8 +83,7 @@ def test_numberToColumnName_Eith_Max_X():
   assert Common.numberToColumnName(10, 90) == 'jjjj'
   
   
-def test_numberToLineNumber():
-  
+def test_numberToLineNumber():  
   assert Common.numberToLineNumber(1, 8) == 1
   assert Common.numberToLineNumber(2, 8) == 1 
   assert Common.numberToLineNumber(3, 8) == 1 

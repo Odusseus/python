@@ -8,7 +8,9 @@ class Board:
     self.maxColumn = max
     self.fields = []
     for i in range(1, self.maxField() + 1):
-     self.fields.append(Field(i))
+      if i == 1:
+        self.fields.append(Field(0)) # Field 0 doesn't exist
+      self.fields.append(Field(i))
 
   def maxField(self):
     return self.maxLine * self.maxColumn
