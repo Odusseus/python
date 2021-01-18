@@ -24,3 +24,6 @@ def repeatToLength(string_to_expand, length):
 
 def getFieldnumber(line, column, max):
   return ((line - 1) * max) + column
+
+def getFieldnumberFlipped(line, column, max):  
+  return ((line - 1) * max) + (max - column + 1)
