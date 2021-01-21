@@ -9,7 +9,7 @@ def createHtmlFile(filename, board):
   _page = dominate.document(title='Chess board')
 
   with _page.head:
-   link(rel='stylesheet', href='..\css\style.css')
+   link(rel='stylesheet', href='../css/style.css')
 
   _body = _page.add(body())
   _table = _body.add(table())
@@ -46,7 +46,7 @@ def createHtmlFileFlipped(filename, board):
   _page = dominate.document(title='Chess board')
 
   with _page.head:
-   link(rel='stylesheet', href='..\css\style.css')
+   link(rel='stylesheet', href='../css/style.css')
 
   _body = _page.add(body())
   _table = _body.add(table())

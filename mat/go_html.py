@@ -12,4 +12,4 @@ print('Allo, allo my name is ' + board.name)
 print('I have ' + str(board.maxField()) + ' fields')
 
 Output.createHtmlFile('test.html', board)
-Output.createHtmlFileFlipped('testflipped.html', board)
+#Output.createHtmlFileFlipped('testflipped.html', board)
