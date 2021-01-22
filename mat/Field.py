@@ -9,9 +9,7 @@ class Field:
     self.color = self.numberToColor(self.number)
     self.columnName = Common.numberToColumnName(number, Constant.MAX_ELEMENT)
     self.lineName = Common.numberToLineNumber(number, Constant.MAX_ELEMENT)
-
-  def name(self):
-    return self.columnName + str(self.lineName)
+    self.name = self.columnName + str(self.lineName)
 
   def numberToColor(self, number, maxElement = Constant.MAX_ELEMENT):
     lineNumber = math.ceil(number/maxElement)
@@ -33,24 +31,24 @@ class Field:
     if maxElementOdd:
       if lineOdd:
         if numberOdd:
-          color = Color(0)
+          color = Color(Constant.BLACK)
         else:
-          color = Color(1)
+          color = Color(Constant.WHITE)
       else:
         if numberOdd:
-          color = Color(1) 
+          color = Color(Constant.WHITE) 
         else:
-          color = Color(0)
+          color = Color(Constant.BLACK)
     else:
       if lineOdd:
         if numberOdd:
-          color = Color(0)
+          color = Color(Constant.BLACK)
         else:
-          color = Color(1)
+          color = Color(Constant.WHITE)
       else:
         if numberOdd:
-          color = Color(1) 
+          color = Color(Constant.WHITE) 
         else:
-          color = Color(0)
+          color = Color(Constant.BLACK)
     return color
   
