@@ -10,6 +10,7 @@ class Field:
     self.columnName = Common.numberToColumnName(number, Constant.MAX_ELEMENT)
     self.lineName = Common.numberToLineNumber(number, Constant.MAX_ELEMENT)
     self.name = self.columnName + str(self.lineName)
+    self.piece = None
 
   def numberToColor(self, number, maxElement = Constant.MAX_ELEMENT):
     lineNumber = math.ceil(number/maxElement)
@@ -52,3 +53,8 @@ class Field:
           color = Color(Constant.BLACK)
     return color
   
+  def setPiece(self, piece):
+    self.piece = piece
+
+  def removePiece(self):
+    self.piece = None
