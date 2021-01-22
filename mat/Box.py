@@ -11,37 +11,37 @@ class Box:
     True == True    
 
   def getKingBlack(self, fieldnumber = None):
-     return King(Constant.KING, Constant.BLACK, fieldnumber)
+     return King(Constant.BLACK, fieldnumber)
 
   def getQueenBlack(self, fieldnumber = None):
-    return Queen(Constant.QUEEN, Constant.BLACK, fieldnumber)
+    return Queen(Constant.BLACK, fieldnumber)
 
   def getRookBlack(self, fieldnumber = None):
-    return Rook(Constant.ROOK, Constant.BLACK, fieldnumber)
+    return Rook(Constant.BLACK, fieldnumber)
 
   def getBishopBlack(self, fieldnumber = None):
-    return Bishop(Constant.BISHOP, Constant.BLACK, fieldnumber)
+    return Bishop(Constant.BLACK, fieldnumber)
 
   def getKnightBlack(self, fieldnumber = None):
-    return Knight(Constant.KNIGHT, Constant.BLACK, fieldnumber)
+    return Knight(Constant.BLACK, fieldnumber)
 
   def getPawnBlack(self, fieldnumber = None):
-    return Pawn(Constant.PAWN, Constant.BLACK, fieldnumber)
+    return Pawn(Constant.BLACK, fieldnumber)
 
   def getKingWhite(self, fieldnumber = None):    
-    return King(Constant.KING, Constant.WHITE, fieldnumber)
+    return King(Constant.WHITE, fieldnumber)
 
   def getQueenWhite(self, fieldnumber = None):
-    return Queen(Constant.QUEEN, Constant.WHITE, fieldnumber)
+    return Queen(Constant.WHITE, fieldnumber)
 
   def getRookWhite(self, fieldnumber = None):
-    return Rook(Constant.ROOK, Constant.WHITE, fieldnumber)
+    return Rook(Constant.WHITE, fieldnumber)
 
   def getBishopWhite(self, fieldnumber = None):
-    return Bishop(Constant.BISHOP, Constant.WHITE, fieldnumber)
+    return Bishop(Constant.WHITE, fieldnumber)
 
   def getKnightWhite(self, fieldnumber = None):
-    return  Knight(Constant.KNIGHT, Constant.WHITE, fieldnumber)
+    return  Knight(Constant.WHITE, fieldnumber)
 
   def getPawnWhite(self, fieldnumber = None):
-    return Pawn(Constant.PAWN, Constant.WHITE, fieldnumber)
+    return Pawn(Constant.WHITE, fieldnumber)

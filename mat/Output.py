@@ -25,7 +25,11 @@ def createHtmlFile(filename, board):
         if j == 1: 
           _tr.add(th(line))
         fieldnumber = Common.getFieldnumber(line, j, Constant.MAX_ELEMENT)
-        _td = td(board.fields[fieldnumber].number, cls = board.fields[fieldnumber].color.name)
+        fieldContent = board.fields[fieldnumber].name
+        if board.fields[fieldnumber].piece != None:
+          fieldContent = board.fields[fieldnumber].piece.shortNameColor
+                    
+        _td = td(fieldContent, cls = board.fields[fieldnumber].color.name)
         _tr.add(_td)
     else :
       for j in range(1, Constant.MAX_ELEMENT + 1):

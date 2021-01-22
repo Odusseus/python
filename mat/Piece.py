@@ -7,8 +7,9 @@ board = Board(Constant.MAX_ELEMENT)
 
 class Piece:
   
-  def __init__(self, name, color, fieldnumber_or_fieldstring = None):
+  def __init__(self, name, shortName, color, fieldnumber_or_fieldstring = None):
     self.name = name
+    self.shortName = shortName
     self.color = Color(color)
     if fieldnumber_or_fieldstring == None:
       fieldnumber = None
@@ -18,3 +19,4 @@ class Piece:
       else:
         fieldnumber = board.fieldnames[fieldnumber_or_fieldstring]
     self.field = Field(fieldnumber)
+    self.shortNameColor = self.shortName + self.color.name[0].lower()

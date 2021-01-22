@@ -15,6 +15,12 @@ class Board:
     self.fieldnames = {} 
     for field in self.fields:
       self.fieldnames[field.name] = field.number
+    
+    self.pieces= []
 
   def maxField(self):
     return self.maxLine * self.maxColumn
+
+  def addPiece(self, piece):
+    self.pieces.append(piece)
+    self.fields[piece.field.number].piece = piece
