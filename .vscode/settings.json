@@ -1,15 +1,17 @@
 {
   "python.testing.pytestArgs": [
-    "."
+    "mattest",
+    "--cov-report",
+    "xml:cov.xml",
+    "--cov=mat"
   ],
-  "python.testing.unittestEnabled": false,
-  "python.testing.nosetestsEnabled": false,
+  "python.testing.unittestEnabled": true,
   "python.testing.pytestEnabled": true,
   "python.testing.unittestArgs": [
     "-v",
     "-s",
     ".",
     "-p",
-    "*_test.py"
-  ]
+    "*_test.py",
+  ],
 }
