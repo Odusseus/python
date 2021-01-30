@@ -1,4 +1,3 @@
-import pytest
 import Constant
 from Bishop import Bishop
 
@@ -15,4 +14,3 @@ def test_Bishop_with_field_return_a_Bishop_on_a_Field():
   assert bishop.field.color.name == Constant.BLACKNAME
   assert bishop.field.columnName == 'a'
   assert bishop.field.lineName == 1
-

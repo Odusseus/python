@@ -1,4 +1,3 @@
-import pytest
 import Common   # The code to test
 
 def test_getFieldnumberFlipped_max_1():

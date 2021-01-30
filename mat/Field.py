@@ -5,6 +5,8 @@ from Color import Color
 
 class Field:
   def __init__(self, number):
+    assert number != None
+
     self.number = number
     self.color = self.numberToColor(self.number)
     self.columnName = Common.numberToColumnName(number, Constant.MAX_ELEMENT)
@@ -30,16 +32,20 @@ class Field:
       numberOdd = False
 
     if maxElementOdd:
-      if lineOdd:
-        if numberOdd:
-          color = Color(Constant.BLACK)
-        else:
-          color = Color(Constant.WHITE)
+      if numberOdd:
+        color = Color(Constant.BLACK)
       else:
-        if numberOdd:
-          color = Color(Constant.WHITE) 
-        else:
-          color = Color(Constant.BLACK)
+        color = Color(Constant.WHITE)
+      # if lineOdd:
+      #   if numberOdd:
+      #     color = Color(Constant.BLACK)
+      #   else:
+      #     color = Color(Constant.WHITE)
+      # else:
+      #   if numberOdd:
+      #     color = Color(Constant.WHITE) 
+      #   else:
+      #     color = Color(Constant.BLACK)
     else:
       if lineOdd:
         if numberOdd:

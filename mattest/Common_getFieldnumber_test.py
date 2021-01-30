@@ -1,4 +1,3 @@
-import pytest
 import Common   # The code to test
 
 def test_getFieldnumber_max_1():

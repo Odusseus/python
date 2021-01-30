@@ -1,4 +1,3 @@
-import pytest
 import Common   # The code to test
 
 def test_numberToColumnName_Eith_Max_8():

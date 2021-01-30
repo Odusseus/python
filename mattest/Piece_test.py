@@ -1,4 +1,3 @@
-import pytest
 import Constant
 from Piece import Piece
 
