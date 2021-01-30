@@ -9,6 +9,10 @@ board = Board(Constant.MAX_ELEMENT)
 class Piece:
   
   def __init__(self, name, shortName, colornumber, fieldnumber_or_fieldstring = None):
+    assert name != None
+    assert shortName != None
+    assert colornumber != None
+
     self.name = name
     self.shortName = shortName
     self.color = Color(colornumber)
