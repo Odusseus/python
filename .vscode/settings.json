@@ -2,7 +2,9 @@
   "python.testing.pytestArgs": [
     "mattest",
     "--cov-report",
-    "xml:cov.xml",
+    "xml:coverage/cov.xml",
+    "--cov-report",
+    "html:coverage",
     "--cov=mat"
   ],
   "python.testing.unittestEnabled": true,
