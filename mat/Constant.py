@@ -1,6 +1,10 @@
 BLACK = 0
+BLACKNAME = 'Black'
 WHITE = 1
+WHITENAME = 'White'
+
 MAX_ELEMENT = 8
+
 KING = 'King'
 KINGSHORT = 'K'
 QUEEN = 'Queen'

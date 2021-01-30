@@ -1,3 +1,4 @@
+import numbers
 import Constant
 from Color import Color
 from Field import Field
@@ -7,14 +8,15 @@ board = Board(Constant.MAX_ELEMENT)
 
 class Piece:
   
-  def __init__(self, name, shortName, color, fieldnumber_or_fieldstring = None):
+  def __init__(self, name, shortName, colornumber, fieldnumber_or_fieldstring = None):
     self.name = name
     self.shortName = shortName
-    self.color = Color(color)
+    self.color = Color(colornumber)
     if fieldnumber_or_fieldstring == None:
       fieldnumber = None
+      return
     else:
-      if type(fieldnumber_or_fieldstring) == 'int':
+      if isinstance(fieldnumber_or_fieldstring, numbers.Number):
        fieldnumber = fieldnumber_or_fieldstring
       else:
         fieldnumber = board.fieldnames[fieldnumber_or_fieldstring]

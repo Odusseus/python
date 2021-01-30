@@ -1,7 +1,9 @@
+import Constant
+
 class Color:
   def __init__(self, number):
     self.number = number
     if(number == 0):
-     self.name = 'Black'
+     self.name = Constant.BLACKNAME
     else:
-     self.name = 'White'
+     self.name = Constant.WHITENAME

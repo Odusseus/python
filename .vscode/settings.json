@@ -1,6 +1,7 @@
 {
   "python.testing.pytestArgs": [
     "mattest",
+    //"--no-cov",
     "--cov-report",
     "xml:coverage/cov.xml",
     "--cov-report",
