@@ -4,6 +4,7 @@ WHITE = 1
 WHITENAME = 'White'
 
 MAX_ELEMENT = 8
+DEFAULT = 'Default'
 
 KING = 'King'
 KINGSHORT = 'K'
