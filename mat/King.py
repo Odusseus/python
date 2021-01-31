@@ -9,3 +9,8 @@ class King(Piece):
       Constant.KINGSHORT,
       color,
       fieldnumber)
+
+  def move(self):
+    fieldnumber = self.field.number
+
+    

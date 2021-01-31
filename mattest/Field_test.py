@@ -90,3 +90,8 @@ def test_numberToColor_MaxElement_Odd():
   assert field.numberToColor(16, 9).number == 1
   assert field.numberToColor(17, 9).number == 0
   assert field.numberToColor(18, 9).number == 1
+
+def test_getLastElement():
+  field = Field(1)
+  assert field.getLastElement(8) == 64
+  assert field.getLastElement(9) == 81

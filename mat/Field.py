@@ -2,6 +2,7 @@ import math
 import Constant
 import Common
 from Color import Color
+#from Board import Board
 
 class Field:
   def __init__(self, number):
@@ -64,3 +65,71 @@ class Field:
 
   def removePiece(self):
     self.piece = None
+
+  def getLastElement(self, maxElement = Constant.MAX_ELEMENT):
+    return maxElement * maxElement
+
+  def getFirstElement(self):
+    return 1
+
+  def isFilednumberInRange(self, fieldNumber):
+    if fieldNumber < self.getFirstElement or fieldNumber > self.getLastElement:
+      return False
+    else:
+      return True
+
+  def getFieldnumberUp(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    upNumber = fieldnumber + maxElement
+    if not self.isFilednumberInRange(upNumber):
+      return None
+    else:
+      return upNumber
+
+  def getFieldnumberUpRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    upNumber = fieldnumber + maxElement + 1
+    if not self.isFilednumberInRange(upNumber):
+      return None
+    else:
+      return upNumber
+
+  def getFieldnumberUpLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    upNumber = fieldnumber + maxElement - 1
+    if not self.isFilednumberInRange(upNumber):
+      return None
+    else:
+      return upNumber
+
+  def getFieldnumberDown(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    downNumber = fieldnumber - maxElement
+    if not self.isFilednumberInRange(downNumber):
+      return None
+    else:
+      return downNumber
+
+  def getFieldnumberDownRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    downNumber = fieldnumber - maxElement - 1 
+    if not self.isFilednumberInRange(downNumber):
+      return None
+    else:
+      return downNumber
+
+  def getFieldnumberDownLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    downNumber = fieldnumber - maxElement + 1 
+    if not self.isFilednumberInRange(downNumber):
+      return None
+    else:
+      return downNumber
+
+  def getFieldnumberLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    downNumber = fieldnumber -  1 
+    if not self.isFilednumberInRange(downNumber):
+      return None
+    else:
+      return downNumber
+
+  def getFieldnumberRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+    downNumber = fieldnumber + 1 
+    if not self.isFilednumberInRange(downNumber):
+      return None
+    else:
+      return downNumber

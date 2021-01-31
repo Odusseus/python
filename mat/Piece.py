@@ -26,3 +26,4 @@ class Piece:
         fieldnumber = board.fieldnames[fieldnumber_or_fieldstring]
     self.field = Field(fieldnumber)
     self.shortNameColor = self.shortName + self.color.name[0].lower()
+    self.reach = []
