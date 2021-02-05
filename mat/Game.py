@@ -4,11 +4,14 @@ from Box import Box
 from Player import Player
 
 class Game:
-  def __init__(self):
-   self.playerW = Player('W', Constant.WHITE)
-   self.playerB = Player('B', Constant.BLACK)
-   self.board = Board(Constant.MAX_ELEMENT, 'First')
-   self.box = Box()
+  def __init__(self, config):
+   assert config != None
+
+   self.config = config
+   self.playerW = Player(self.config, 'W', Constant.WHITE)
+   self.playerB = Player(self.config, 'B', Constant.BLACK)
+   self.board = Board(self.config, 'First')
+   self.box = Box(self.config)
    
    self.board.addPiece(self.box.getRookWhite('a1'))
    self.board.addPiece(self.box.getKnightWhite('b1'))

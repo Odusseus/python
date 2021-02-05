@@ -1,15 +1,18 @@
 import Constant
 from Knight import Knight
+from Config import Config
+
+config = Config()
 
 def test_Knight_return_a_Knight():
-  result = Knight(Constant.BLACK)
+  result = Knight(config, Constant.BLACK)
   assert result.name == Constant.KNIGHT
   assert result.shortName == Constant.KNIGHTSHORT
   assert result.color.number == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
 
 def test_Knight_with_field_return_a_Knight_on_a_Field():
-  result = Knight(Constant.BLACK, 1)
+  result = Knight(config, Constant.BLACK, 1)
   assert result.color.number == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
   assert result.name == Constant.KNIGHT

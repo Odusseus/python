@@ -7,41 +7,41 @@ from Knight import Knight
 from Pawn import Pawn
 
 class Box:
-  def __init__(self):
-    True == True    
+  def __init__(self, config):
+    self.config = config    
 
   def getKingBlack(self, fieldnumber = None):
-     return King(Constant.BLACK, fieldnumber)
+     return King(self.config, Constant.BLACK, fieldnumber)
 
   def getQueenBlack(self, fieldnumber = None):
-    return Queen(Constant.BLACK, fieldnumber)
+    return Queen(self.config, Constant.BLACK, fieldnumber)
 
   def getRookBlack(self, fieldnumber = None):
-    return Rook(Constant.BLACK, fieldnumber)
+    return Rook(self.config, Constant.BLACK, fieldnumber)
 
   def getBishopBlack(self, fieldnumber = None):
-    return Bishop(Constant.BLACK, fieldnumber)
+    return Bishop(self.config, Constant.BLACK, fieldnumber)
 
   def getKnightBlack(self, fieldnumber = None):
-    return Knight(Constant.BLACK, fieldnumber)
+    return Knight(self.config, Constant.BLACK, fieldnumber)
 
   def getPawnBlack(self, fieldnumber = None):
-    return Pawn(Constant.BLACK, fieldnumber)
+    return Pawn(self.config, Constant.BLACK, fieldnumber)
 
   def getKingWhite(self, fieldnumber = None):    
-    return King(Constant.WHITE, fieldnumber)
+    return King(self.config, Constant.WHITE, fieldnumber)
 
   def getQueenWhite(self, fieldnumber = None):
-    return Queen(Constant.WHITE, fieldnumber)
+    return Queen(self.config, Constant.WHITE, fieldnumber)
 
   def getRookWhite(self, fieldnumber = None):
-    return Rook(Constant.WHITE, fieldnumber)
+    return Rook(self.config, Constant.WHITE, fieldnumber)
 
   def getBishopWhite(self, fieldnumber = None):
-    return Bishop(Constant.WHITE, fieldnumber)
+    return Bishop(self.config, Constant.WHITE, fieldnumber)
 
   def getKnightWhite(self, fieldnumber = None):
-    return  Knight(Constant.WHITE, fieldnumber)
+    return  Knight(self.config, Constant.WHITE, fieldnumber)
 
   def getPawnWhite(self, fieldnumber = None):
-    return Pawn(Constant.WHITE, fieldnumber)
+    return Pawn(self.config, Constant.WHITE, fieldnumber)

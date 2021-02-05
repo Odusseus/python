@@ -1,6 +1,9 @@
 import Output
 from Game import Game
+from Config import Config
 
-game = Game()
+config = Config()
+
+game = Game(config)
 
 Output.createHtmlFile('game.html', game.board)

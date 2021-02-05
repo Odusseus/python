@@ -1,13 +1,16 @@
 import Constant
+from Config import Config
 from Piece import Piece
 
+config = Config()
+
 def test_Piece_return_a_Piece():
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK)
+  piece = Piece(config, Constant.KING, Constant.KINGSHORT, Constant.BLACK)
   assert piece.color.number == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 
 def test_Piece_with_fieldnumber_return_a_Piece_on_a_fied():
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, 1)
+  piece = Piece(config, Constant.KING, Constant.KINGSHORT, Constant.BLACK, 1)
   assert piece.color.number == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 
@@ -17,7 +20,7 @@ def test_Piece_with_fieldnumber_return_a_Piece_on_a_fied():
   assert piece.field.lineName == 1
 
 def test_Piece_with_fieldname_return_a_Piece_on_a_fied():
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, 'a1')
+  piece = Piece(config, Constant.KING, Constant.KINGSHORT, Constant.BLACK, 'a1')
   assert piece.color.number == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 

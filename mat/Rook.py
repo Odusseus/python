@@ -3,8 +3,9 @@ from Piece import Piece
 
 
 class Rook(Piece):
-    def __init__(self, color, fieldnumber=None):
+    def __init__(self, config, color, fieldnumber=None):
         Piece.__init__(self,
+                       config,
                        Constant.ROOK,
                        Constant.ROOKSHORT,
                        color,

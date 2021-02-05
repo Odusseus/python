@@ -5,19 +5,21 @@ from Color import Color
 #from Board import Board
 
 class Field:
-  def __init__(self, number):
+  def __init__(self, config, number):
+    assert config != None
     assert number != None
 
+    self.config = config
     self.number = number
     self.color = self.numberToColor(self.number)
-    self.columnName = Common.numberToColumnName(number, Constant.MAX_ELEMENT)
-    self.lineName = Common.numberToLineNumber(number, Constant.MAX_ELEMENT)
+    self.columnName = Common.numberToColumnName(number, self.config.maxElement)
+    self.lineName = Common.numberToLineNumber(number, self.config.maxElement)
     self.name = self.columnName + str(self.lineName)
     self.piece = None
 
-  def numberToColor(self, number, maxElement = Constant.MAX_ELEMENT):
-    lineNumber = math.ceil(number/maxElement)
-    if maxElement % 2 == 1:
+  def numberToColor(self, number):
+    lineNumber = math.ceil(number/self.config.maxElement)
+    if self.config.maxElement % 2 == 1:
       maxElementOdd = True
     else:
       maxElementOdd = False
@@ -34,9 +36,9 @@ class Field:
 
     if maxElementOdd:
       if numberOdd:
-        color = Color(Constant.BLACK)
+        color = Color(self.config, Constant.BLACK)
       else:
-        color = Color(Constant.WHITE)
+        color = Color(self.config, Constant.WHITE)
       # if lineOdd:
       #   if numberOdd:
       #     color = Color(Constant.BLACK)
@@ -50,14 +52,14 @@ class Field:
     else:
       if lineOdd:
         if numberOdd:
-          color = Color(Constant.BLACK)
+          color = Color(self.config, Constant.BLACK)
         else:
-          color = Color(Constant.WHITE)
+          color = Color(self.config, Constant.WHITE)
       else:
         if numberOdd:
-          color = Color(Constant.WHITE) 
+          color = Color(self.config, Constant.WHITE) 
         else:
-          color = Color(Constant.BLACK)
+          color = Color(self.config, Constant.BLACK)
     return color
   
   def setPiece(self, piece):
@@ -66,8 +68,8 @@ class Field:
   def removePiece(self):
     self.piece = None
 
-  def getLastElement(self, maxElement = Constant.MAX_ELEMENT):
-    return maxElement * maxElement
+  def getLastElement(self):
+    return self.config.maxElement * self.config.maxElement
 
   def getFirstElement(self):
     return 1
@@ -78,56 +80,56 @@ class Field:
     else:
       return True
 
-  def getFieldnumberUp(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    upNumber = fieldnumber + maxElement
+  def getFieldnumberUp(self, fieldnumber):
+    upNumber = fieldnumber + self.config.maxElement
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
-  def getFieldnumberUpRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    upNumber = fieldnumber + maxElement + 1
+  def getFieldnumberUpRight(self, fieldnumber):
+    upNumber = fieldnumber + self.config.maxElement + 1
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
-  def getFieldnumberUpLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    upNumber = fieldnumber + maxElement - 1
+  def getFieldnumberUpLeft(self, fieldnumber):
+    upNumber = fieldnumber + self.config.maxElement - 1
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
-  def getFieldnumberDown(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    downNumber = fieldnumber - maxElement
+  def getFieldnumberDown(self, fieldnumber):
+    downNumber = fieldnumber - self.config.maxElement
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
-  def getFieldnumberDownRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    downNumber = fieldnumber - maxElement - 1 
+  def getFieldnumberDownRight(self, fieldnumber):
+    downNumber = fieldnumber - self.config.maxElementElement - 1 
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
-  def getFieldnumberDownLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
-    downNumber = fieldnumber - maxElement + 1 
+  def getFieldnumberDownLeft(self, fieldnumber):
+    downNumber = fieldnumber - self.config.maxElement + 1 
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
-  def getFieldnumberLeft(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+  def getFieldnumberLeft(self, fieldnumber):
     downNumber = fieldnumber -  1 
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
-  def getFieldnumberRight(self, fieldnumber, maxElement=Constant.MAX_ELEMENT):
+  def getFieldnumberRight(self, fieldnumber):
     downNumber = fieldnumber + 1 
     if not self.isFilednumberInRange(downNumber):
       return None
