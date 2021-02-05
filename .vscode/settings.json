@@ -3,6 +3,8 @@
     "mattest",
     //"--no-cov",
     "--cov-report",
+    "term"
+    "--cov-report",
     "xml:coverage/cov.xml",
     "--cov-report",
     "html:coverage",

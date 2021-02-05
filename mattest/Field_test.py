@@ -95,3 +95,11 @@ def test_getLastElement():
   field = Field(1)
   assert field.getLastElement(8) == 64
   assert field.getLastElement(9) == 81
+  
+def test_getFirstElement():
+  field = Field(1)
+  assert field.getFirstElement() == 1
+
+def test_isFilednumberInRange():
+  field = Field(0)
+  assert field.getFirstElement() == 1
