@@ -44,7 +44,9 @@ def createHtmlFile(filename, board):
   filename = os.path.join(sb, filename)
 
   f = open(filename, "w")
-  f.write(str(_page))
+  output = str(_page)
+  x = output.encode("utf-8")
+  f.write(str(x))
   f.close()
 
 def createHtmlFileFlipped(filename, board):

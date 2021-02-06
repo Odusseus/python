@@ -80,6 +80,12 @@ def test_numberToColumnName_Eith_Max_X():
   assert Common.numberToColumnName(8, 30) == 'hh'
   assert Common.numberToColumnName(9, 60) == 'iii'
   assert Common.numberToColumnName(10, 90) == 'jjjj'
+
+  
+def test_numberToColumnName_Max_X():
+  #assert Common.numberToColumnName(1, 30) == 'a'
+  #assert Common.numberToColumnName(27, 30) == 'aa'
+  assert Common.numberToColumnName(30, 30) == 'c'
   
   
 def test_numberToLineNumber():  

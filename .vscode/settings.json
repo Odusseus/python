@@ -1,7 +1,7 @@
 {
   "python.testing.pytestArgs": [
     "mattest",
-    //"--no-cov",
+    "--no-cov",
     "--cov-report",
     "term",
     "--cov-report",

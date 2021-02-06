@@ -3,15 +3,19 @@ import math
 def numberToColumnName(number, max): 
   ALPHABET_BASE = 96
   MAX_LETTER = 26
-  cycle = math.ceil(max / MAX_LETTER)
 
-  letterNumber = number % max
-  if letterNumber == 0:
-    letterNumber = letterNumber + max + ALPHABET_BASE
-  else:
-    letterNumber = letterNumber + ALPHABET_BASE
+  cycle = math.floor(number / max)
+  if number % max == 0:
+    cycle = cycle - 1
+  numberB = number - (max * cycle)
+
+  if numberB > MAX_LETTER:
+    numberB = numberB - MAX_LETTER
+
+  letterNumber = numberB + ALPHABET_BASE
  
   letter = chr(letterNumber)
+  return letter
   letters = repeatToLength(letter, cycle)
   return letters
 

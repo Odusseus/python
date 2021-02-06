@@ -24,7 +24,11 @@ class Piece:
       if isinstance(fieldnumber_or_fieldstring, numbers.Number):
        fieldnumber = fieldnumber_or_fieldstring
       else:
-        fieldnumber = self.board.fieldnames[fieldnumber_or_fieldstring]
+        fieldnumber = self.board.fieldnames.get(fieldnumber_or_fieldstring)
+        if fieldnumber == None:
+          message = f'{fieldnumber_or_fieldstring} is not found'
+          raise KeyError(message)
+          
     self.field = Field(self.config, fieldnumber)
     self.shortNameColor = self.shortName + self.color.name[0].lower()
     self.reach = []
