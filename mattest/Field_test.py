@@ -1,39 +1,41 @@
+import Config
 import Constant
 from Field import Field   # The code to test
 from Piece import Piece
-from Config import Config
-
-config = Config()
-config9 = Config(9)
 
 def test_Field_Black_Oddline():
-  field = Field(config, 1)
+  Config.Init()
+  field = Field(1)
 
   assert field.color.number == Constant.BLACK
   assert field.color.name == Constant.BLACKNAME
 
 def test_Field_Black_evenline():
-  field = Field(config, 10)
+  Config.Init()
+  field = Field(10)
 
   assert field.color.number == Constant.BLACK
   assert field.color.name == Constant.BLACKNAME
 
 def test_Field_White_oddline():
-  field = Field(config, 2)
+  Config.Init()
+  field = Field(2)
 
   assert field.color.number == Constant.WHITE
   assert field.color.name == Constant.WHITENAME
 
 def test_Field_White_evenline():
-  field = Field(config, 9)
+  Config.Init()
+  field = Field(9)
 
   assert field.color.number == Constant.WHITE
   assert field.color.name == Constant.WHITENAME
 
 def test_setPiece():
   # Arrange
-  field = Field(config, 1)
-  piece = Piece(config, Constant.KING, Constant.KINGSHORT, Constant.BLACK)
+  Config.Init()
+  field = Field(1)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE)
   
   # Act
   field.setPiece(piece)
@@ -42,8 +44,9 @@ def test_setPiece():
 
 def test_removePiece():
   # Arrange
-  field = Field(config, 1)
-  piece = Piece(config, Constant.KING, Constant.KINGSHORT, Constant.BLACK)
+  Config.Init()
+  field = Field(1)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE)
   field.setPiece(piece)
 
   # Act
@@ -53,7 +56,8 @@ def test_removePiece():
 
 
 def test_numberToColor():
-  field = Field(config, 1)
+  Config.Init()
+  field = Field(1)
   assert field.numberToColor(1).number == 0
   assert field.numberToColor(2).number == 1
   assert field.numberToColor(3).number == 0
@@ -74,7 +78,8 @@ def test_numberToColor():
   assert field.numberToColor(18).number == 1
 
 def test_numberToColor_MaxElement_Odd():
-  field = Field(config9, 1)
+  Config.Init(9)
+  field = Field(1)
   assert field.numberToColor(1).number == 0
   assert field.numberToColor(2).number == 1
   assert field.numberToColor(3).number == 0
@@ -96,16 +101,20 @@ def test_numberToColor_MaxElement_Odd():
   assert field.numberToColor(18).number == 1
 
 def test_getLastElement():
-  field = Field(config, 1)
+  Config.Init()
+  field = Field(1)
   assert field.getLastElement() == 64
 
-  field = Field(config9, 1)
+  Config.Init(9)
+  field = Field(1)
   assert field.getLastElement() == 81
   
 def test_getFirstElement():
-  field = Field(config, 1)
+  Config.Init()
+  field = Field(1)
   assert field.getFirstElement() == 1
 
 def test_isFilednumberInRange():
-  field = Field(config, 0)
+  Config.Init()
+  field = Field(0)
   assert field.getFirstElement() == 1

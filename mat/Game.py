@@ -1,3 +1,4 @@
+import Config
 import Constant
 import random
 from Board import Board
@@ -6,17 +7,14 @@ from collections import deque
 from Player import Player
 
 class Game:
-  def __init__(self, config):
-    assert config != None
-
-    self.config = config
-    self.playerW = Player(self.config, 'Ger', Constant.WHITE)
-    self.playerB = Player(self.config, 'Pascal', Constant.BLACK)
-    self.board = Board(self.config, 'First')
-    self.box = Box(self.config)
+  def __init__(self):
+    self.playerW = Player('Ger', Constant.WHITE)
+    self.playerB = Player('Pascal', Constant.BLACK)
+    self.board = Board('First')
+    self.box = Box(Config)
   
-    if self.config.random:
-      fields = list(range(1, (self.config.maxElement * self.config.maxElement) + 1))
+    if Config.random:
+      fields = list(range(1, (Config.maxElement * Config.maxElement) + 1))
       random.shuffle(fields)
 
       if len(fields) != 0:
@@ -109,7 +107,7 @@ class Game:
       if len(fields) != 0:
         self.board.addPiece(self.box.getPawnBlack(fields.pop()))
 
-    elif self.config.maxElement == 8:
+    elif Config.maxElement == 8:
       self.board.addPiece(self.box.getRookWhite('a1'))
       self.board.addPiece(self.box.getKnightWhite('b1'))
       self.board.addPiece(self.box.getBishopWhite('c1'))
@@ -146,7 +144,7 @@ class Game:
       self.board.addPiece(self.box.getPawnBlack('g7'))
       self.board.addPiece(self.box.getPawnBlack('h7'))
      
-    elif self.config.maxElement > 8:
+    elif Config.maxElement > 8:
       self.board.addPiece(self.box.getRookWhite(1))
       self.board.addPiece(self.box.getKnightWhite(2))
       self.board.addPiece(self.box.getBishopWhite(3))

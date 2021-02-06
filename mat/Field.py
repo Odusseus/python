@@ -1,25 +1,23 @@
 import math
+import Config
 import Constant
 import Common
 from Color import Color
-#from Board import Board
 
 class Field:
-  def __init__(self, config, number):
-    assert config != None
+  def __init__(self, number):
     assert number != None
 
-    self.config = config
     self.number = number
     self.color = self.numberToColor(self.number)
-    self.columnName = Common.numberToColumnName(number, self.config.maxElement)
-    self.lineName = Common.numberToLineNumber(number, self.config.maxElement)
+    self.columnName = Common.numberToColumnName(number, Config.maxElement)
+    self.lineName = Common.numberToLineNumber(number, Config.maxElement)
     self.name = self.columnName + str(self.lineName)
     self.piece = None
 
   def numberToColor(self, number):
-    lineNumber = math.ceil(number/self.config.maxElement)
-    if self.config.maxElement % 2 == 1:
+    lineNumber = math.ceil(number/Config.maxElement)
+    if Config.maxElement % 2 == 1:
       maxElementOdd = True
     else:
       maxElementOdd = False
@@ -36,9 +34,9 @@ class Field:
 
     if maxElementOdd:
       if numberOdd:
-        color = Color(self.config, Constant.BLACK)
+        color = Color(Constant.BLACK)
       else:
-        color = Color(self.config, Constant.WHITE)
+        color = Color(Constant.WHITE)
       # if lineOdd:
       #   if numberOdd:
       #     color = Color(Constant.BLACK)
@@ -52,14 +50,14 @@ class Field:
     else:
       if lineOdd:
         if numberOdd:
-          color = Color(self.config, Constant.BLACK)
+          color = Color(Constant.BLACK)
         else:
-          color = Color(self.config, Constant.WHITE)
+          color = Color(Constant.WHITE)
       else:
         if numberOdd:
-          color = Color(self.config, Constant.WHITE) 
+          color = Color(Constant.WHITE) 
         else:
-          color = Color(self.config, Constant.BLACK)
+          color = Color(Constant.BLACK)
     return color
   
   def setPiece(self, piece):
@@ -69,7 +67,7 @@ class Field:
     self.piece = None
 
   def getLastElement(self):
-    return self.config.maxElement * self.config.maxElement
+    return Config.maxElement * Config.maxElement
 
   def getFirstElement(self):
     return 1
@@ -81,42 +79,42 @@ class Field:
       return True
 
   def getFieldnumberUp(self, fieldnumber):
-    upNumber = fieldnumber + self.config.maxElement
+    upNumber = fieldnumber + Config.maxElement
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
   def getFieldnumberUpRight(self, fieldnumber):
-    upNumber = fieldnumber + self.config.maxElement + 1
+    upNumber = fieldnumber + Config.maxElement + 1
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
   def getFieldnumberUpLeft(self, fieldnumber):
-    upNumber = fieldnumber + self.config.maxElement - 1
+    upNumber = fieldnumber + Config.maxElement - 1
     if not self.isFilednumberInRange(upNumber):
       return None
     else:
       return upNumber
 
   def getFieldnumberDown(self, fieldnumber):
-    downNumber = fieldnumber - self.config.maxElement
+    downNumber = fieldnumber - Config.maxElement
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
   def getFieldnumberDownRight(self, fieldnumber):
-    downNumber = fieldnumber - self.config.maxElementElement - 1 
+    downNumber = fieldnumber - Config.maxElement - 1 
     if not self.isFilednumberInRange(downNumber):
       return None
     else:
       return downNumber
 
   def getFieldnumberDownLeft(self, fieldnumber):
-    downNumber = fieldnumber - self.config.maxElement + 1 
+    downNumber = fieldnumber - Config.maxElement + 1 
     if not self.isFilednumberInRange(downNumber):
       return None
     else:

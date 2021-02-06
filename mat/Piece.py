@@ -1,23 +1,20 @@
 import numbers
-import Constant
 from Color import Color
 from Field import Field
 from Board import Board
 
 class Piece:
   
-  def __init__(self, config, name, shortName, colornumber, code, fieldnumber_or_fieldstring = None):
-    assert config != None
+  def __init__(self, name, shortName, colornumber, code, fieldnumber_or_fieldstring = None):
     assert name != None
     assert shortName != None
     assert colornumber != None
     assert code != None
 
-    self.config = config
-    self.board = Board(self.config) 
+    self.board = Board() 
     self.name = name
     self.shortName = shortName
-    self.color = Color(self.config, colornumber)
+    self.color = Color(colornumber)
     self.code = code
     if fieldnumber_or_fieldstring == None:
       fieldnumber = None
@@ -31,6 +28,6 @@ class Piece:
           message = f'{fieldnumber_or_fieldstring} is not found'
           raise KeyError(message)
           
-    self.field = Field(self.config, fieldnumber)
+    self.field = Field(fieldnumber)
     self.shortNameColor = self.shortName + self.color.name[0].lower()
     self.reach = []

@@ -1,10 +1,9 @@
+import Config
 import Output
 from Game import Game
-from Config import Config
 
-config = Config(30, True)
+Config.Init(30, True)
 
-
-game = Game(config)
+game = Game()
 
 Output.createHtmlFile('game.html', game.board)

@@ -1,10 +1,10 @@
+import Config
 import Constant
 import Output
 from Board import Board
-from Config import Config
 
-config = Config()
-board = Board(config, 'First')
+Config.Init()
+board = Board('First')
 print('Allo, allo my name is ' + board.name)
 #print('I have ' + str(board.maxField()) + ' fields')
 

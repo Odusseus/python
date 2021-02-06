@@ -1,8 +1,8 @@
 import Constant
-from Config import Config
+import Config
 from Board import Board
-config = Config()
-board = Board(config, 'First')
+Config.Init()
+board = Board('First')
 print('Allo, allo my name is ' + board.name)
 print('I have ' + str(board.getMaxField()) + ' fields')
 

@@ -1,11 +1,11 @@
+import Config
 import Constant
 from Box import Box
-from Config import Config
 
-config = Config()
+Config.Init()
 
 def test_Box_return_a_Box():
-  box = Box(config)
+  box = Box()
 
   result = box.getKingBlack()  
   assert result.name == Constant.KING

@@ -1,18 +1,18 @@
+import Config
 import Constant
-from Config import Config
 from Pawn import Pawn
 
-config = Config()
-
 def test_Pawn_return_a_Pawn():
-  result = Pawn(config, Constant.BLACK)
+  Config.Init(8)
+  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE)
   assert result.name == Constant.PAWN
   assert result.shortName == Constant.PAWNSHORT
   assert result.color.number == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
 
 def test_Pawn_with_field_return_a_Pawn_on_a_Field():
-  result = Pawn(config, Constant.BLACK, 1)
+  Config.Init(8)
+  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, 1)
   assert result.color.number == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
   assert result.name == Constant.PAWN

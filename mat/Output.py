@@ -1,6 +1,5 @@
 import pathlib
 import os
-import Constant
 import Common
 import dominate
 from dominate.util import raw

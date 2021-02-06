@@ -77,16 +77,16 @@ def test_numberToColumnName_Eith_Max_X():
   assert Common.numberToColumnName(5, 8) == 'e'
   assert Common.numberToColumnName(6, 9) == 'f'
   assert Common.numberToColumnName(7, 10) == 'g'
-  assert Common.numberToColumnName(8, 30) == 'hh'
-  assert Common.numberToColumnName(9, 60) == 'iii'
-  assert Common.numberToColumnName(10, 90) == 'jjjj'
+  assert Common.numberToColumnName(8, 30) == 'h'
+  assert Common.numberToColumnName(9, 60) == 'i'
+  assert Common.numberToColumnName(10, 90) == 'j'
 
   
 def test_numberToColumnName_Max_X():
-  #assert Common.numberToColumnName(1, 30) == 'a'
-  #assert Common.numberToColumnName(27, 30) == 'aa'
-  #assert Common.numberToColumnName(30, 30) == 'dd'
-  assert Common.numberToColumnName(100, 30) == 'c'
+  assert Common.numberToColumnName(1, 30) == 'a'
+  assert Common.numberToColumnName(27, 30) == 'aa'
+  assert Common.numberToColumnName(30, 30) == 'dd'
+  assert Common.numberToColumnName(100, 30) == 'j'
   
   
 def test_numberToLineNumber():  

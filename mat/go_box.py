@@ -1,8 +1,8 @@
 from Box import Box
 from Config import Config
 
-config = Config()
-box = Box(config)
+Config.Init()
+box = Box()
 
 kingWhite = box.getKingWhite('e1')
 print(kingWhite.name)
