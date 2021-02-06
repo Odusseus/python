@@ -2,7 +2,7 @@ import Output
 from Game import Game
 from Config import Config
 
-config = Config(57, True)
+config = Config(30, True)
 
 
 game = Game(config)

@@ -2,13 +2,14 @@ import Constant
 from Piece import Piece
 
 class King(Piece):
-  def __init__(self, config, color, fieldnumber = None):
+  def __init__(self, config, color, code, fieldnumber = None):
     Piece.__init__(
       self,
       config,
       Constant.KING,
       Constant.KINGSHORT,
       color,
+      code,
       fieldnumber)
 
   def move(self):

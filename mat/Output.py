@@ -3,6 +3,7 @@ import os
 import Constant
 import Common
 import dominate
+from dominate.util import raw
 from dominate.tags import link, html, body, table, tbody, tr, th, td
 
 def createHtmlFile(filename, board):
@@ -25,9 +26,11 @@ def createHtmlFile(filename, board):
         if j == 1: 
           _tr.add(th(line))
         fieldnumber = Common.getFieldnumber(line, j, board.maxElement)
-        fieldContent = board.fields[fieldnumber].name
+        #fieldContent = board.fields[fieldnumber].name
+        fieldContent = ''
         if board.fields[fieldnumber].piece != None:
-          fieldContent = board.fields[fieldnumber].piece.shortNameColor
+          #fieldContent = board.fields[fieldnumber].piece.shortNameColor
+          fieldContent = raw(board.fields[fieldnumber].piece.code)
                     
         _td = td(fieldContent, cls = board.fields[fieldnumber].color.name)
         _tr.add(_td)
@@ -45,9 +48,11 @@ def createHtmlFile(filename, board):
 
   f = open(filename, "w")
   output = str(_page)
-  x = output.encode("utf-8")
-  f.write(str(x))
+  f.write(output)
   f.close()
+  #x = output.encode("utf-8")
+  #f.write(str(x))
+  #f.close()
 
 def createHtmlFileFlipped(filename, board):
   _page = dominate.document(title='Chess board')

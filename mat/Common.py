@@ -4,19 +4,15 @@ def numberToColumnName(number, max):
   ALPHABET_BASE = 96
   MAX_LETTER = 26
 
-  cycle = math.floor(number / max)
-  if number % max == 0:
-    cycle = cycle - 1
-  numberB = number - (max * cycle)
-
+  cycle = math.ceil(number / max)
+  numberB = number - (max * (cycle - 1))
+  cycle2 = math.ceil(numberB / MAX_LETTER)
   if numberB > MAX_LETTER:
-    numberB = numberB - MAX_LETTER
-
+    numberB = numberB - (MAX_LETTER * (cycle2 -1 ))
   letterNumber = numberB + ALPHABET_BASE
- 
+
   letter = chr(letterNumber)
-  return letter
-  letters = repeatToLength(letter, cycle)
+  letters = repeatToLength(letter, cycle2)
   return letters
 
 def numberToLineNumber(number, max):

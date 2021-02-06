@@ -6,17 +6,19 @@ from Board import Board
 
 class Piece:
   
-  def __init__(self, config, name, shortName, colornumber, fieldnumber_or_fieldstring = None):
+  def __init__(self, config, name, shortName, colornumber, code, fieldnumber_or_fieldstring = None):
     assert config != None
     assert name != None
     assert shortName != None
     assert colornumber != None
+    assert code != None
 
     self.config = config
     self.board = Board(self.config) 
     self.name = name
     self.shortName = shortName
     self.color = Color(self.config, colornumber)
+    self.code = code
     if fieldnumber_or_fieldstring == None:
       fieldnumber = None
       return

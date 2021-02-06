@@ -18,108 +18,96 @@ class Game:
     if self.config.random:
       fields = list(range(1, (self.config.maxElement * self.config.maxElement) + 1))
       random.shuffle(fields)
-      if len(fields) == 0:
-        return
 
-      self.board.addPiece(self.box.getRookWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKnightWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getBishopWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getQueenWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKingWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getBishopWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKnightWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getRookWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-     
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnWhite(fields.pop()))
-      if len(fields) == 0:
-        return
-     
-      self.board.addPiece(self.box.getRookBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKnightBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getBishopBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getQueenBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKingBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getBishopBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getKnightBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getRookBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-     
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
-      self.board.addPiece(self.box.getPawnBlack(fields.pop()))
-      if len(fields) == 0:
-        return
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKingWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKingBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getQueenWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getQueenBlack(fields.pop()))
+  
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getRookWhite(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getRookBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getRookWhite(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getRookBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getBishopWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getBishopBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getBishopWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getBishopBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKnightWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKnightBlack(fields.pop()))
+
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKnightWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getKnightBlack(fields.pop()))
+
+      #1
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #2
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #3
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #4
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #5
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #6
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #7
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
+
+      #8
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnWhite(fields.pop()))
+      if len(fields) != 0:
+        self.board.addPiece(self.box.getPawnBlack(fields.pop()))
 
     elif self.config.maxElement == 8:
       self.board.addPiece(self.box.getRookWhite('a1'))
