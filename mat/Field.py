@@ -73,7 +73,7 @@ class Field:
     return 1
 
   def isFilednumberInRange(self, fieldNumber):
-    if fieldNumber < self.getFirstElement or fieldNumber > self.getLastElement:
+    if fieldNumber < self.getFirstElement() or fieldNumber > self.getLastElement():
       return False
     else:
       return True

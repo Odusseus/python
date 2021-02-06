@@ -114,7 +114,19 @@ def test_getFirstElement():
   field = Field(1)
   assert field.getFirstElement() == 1
 
-def test_isFilednumberInRange():
+def test_isFilednumberInRange_Return_False_When_Fieldnumber_Small_Than_First_Element():
   Config.Init()
   field = Field(0)
-  assert field.getFirstElement() == 1
+  assert field.isFilednumberInRange(0) == False
+
+def test_isFilednumberInRange_Return_False_When_Fieldnumber_Tall_Than_Last_Element():
+  Config.Init(5)
+  field = Field(0)
+  assert field.isFilednumberInRange(30) == False
+
+def test_isFilednumberInRange_Return_True_When_Fieldnumber_Is_In_The_Range():
+  Config.Init(5)
+  field = Field(0)
+  assert field.isFilednumberInRange(5) == True
+
+
