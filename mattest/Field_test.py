@@ -135,5 +135,71 @@ def test_getFieldnumberUp():
   assert field.getFieldnumberUp(5)[0] == True
   assert field.getFieldnumberUp(5)[1] == 8
 
+  assert field.getFieldnumberUp(8)[0] == False
+  assert field.getFieldnumberUp(8)[1] == None
+
+def test_getFieldnumberUpRight():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberUpRight(5)[0] == True
+  assert field.getFieldnumberUpRight(5)[1] == 9
+  
+  assert field.getFieldnumberUpRight(8)[0] == False
+  assert field.getFieldnumberUpRight(8)[1] == None
+
+def test_getFieldnumberUpLeft():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberUpLeft(5)[0] == True
+  assert field.getFieldnumberUpLeft(5)[1] == 7
+  
+  assert field.getFieldnumberUpLeft(8)[0] == False
+  assert field.getFieldnumberUpLeft(8)[1] == None
+
+def test_getFieldnumberDown():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberDown(5)[0] == True
+  assert field.getFieldnumberDown(5)[1] == 2
+
+  assert field.getFieldnumberDown(2)[0] == False
+  assert field.getFieldnumberDown(2)[1] == None
+
+def test_getFieldnumberDownRight():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberDownRight(5)[0] == True
+  assert field.getFieldnumberDownRight(5)[1] == 3
+  
+  assert field.getFieldnumberDownRight(2)[0] == False
+  assert field.getFieldnumberDownRight(2)[1] == None
+
+def test_getFieldnumberdownLeft():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberDownLeft(5)[0] == True
+  assert field.getFieldnumberDownLeft(5)[1] == 1
+  
+  assert field.getFieldnumberDownLeft(2)[0] == False
+  assert field.getFieldnumberDownLeft(2)[1] == None
+
+def test_getFieldnumberLeft():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberLeft(5)[0] == True
+  assert field.getFieldnumberLeft(5)[1] == 4
+  
+  assert field.getFieldnumberLeft(4)[0] == False
+  assert field.getFieldnumberLeft(4)[1] == None
+
+def test_getFieldnumberRight():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberRight(5)[0] == True
+  assert field.getFieldnumberRight(5)[1] == 6
+  
+  assert field.getFieldnumberRight(6)[0] == False
+  assert field.getFieldnumberRight(6)[1] == None
+
 
 

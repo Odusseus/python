@@ -21,3 +21,10 @@ def test_King_with_field_return_a_King_on_a_Field():
   assert result.field.color.name == Constant.BLACKNAME
   assert result.field.columnName == 'a'
   assert result.field.lineName == 1
+
+def test_King_move():
+  Config.Init(3)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
+  result = king.move()
+  assert len(result) == 8
+  

@@ -73,7 +73,9 @@ class Field:
     return 1
 
   def isFilednumberInRange(self, fieldNumber):
-    if fieldNumber < self.getFirstElement() or fieldNumber > self.getLastElement():
+    if (fieldNumber == None
+        or fieldNumber < self.getFirstElement() 
+        or fieldNumber > self.getLastElement()):
       return False
     else:
       return True
@@ -107,14 +109,14 @@ class Field:
       return True, downNumber
 
   def getFieldnumberDownRight(self, fieldnumber):
-    downNumber = fieldnumber - Config.maxElement - 1 
+    downNumber = fieldnumber - Config.maxElement + 1 
     if not self.isFilednumberInRange(downNumber):
       return False, None
     else:
       return True, downNumber
 
   def getFieldnumberDownLeft(self, fieldnumber):
-    downNumber = fieldnumber - Config.maxElement + 1 
+    downNumber = fieldnumber - Config.maxElement - 1 
     if not self.isFilednumberInRange(downNumber):
       return False, None
     else:
@@ -122,13 +124,19 @@ class Field:
 
   def getFieldnumberLeft(self, fieldnumber):
     downNumber = fieldnumber -  1 
+    column = downNumber % Config.maxElement
+    if column == 0:
+      downNumber = 0
     if not self.isFilednumberInRange(downNumber):
       return False, None
     else:
       return True, downNumber
 
   def getFieldnumberRight(self, fieldnumber):
-    downNumber = fieldnumber + 1 
+    column = fieldnumber % Config.maxElement
+    downNumber = None 
+    if column != 0:
+      downNumber = fieldnumber + 1 
     if not self.isFilednumberInRange(downNumber):
       return False, None
     else:
