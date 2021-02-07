@@ -129,4 +129,11 @@ def test_isFilednumberInRange_Return_True_When_Fieldnumber_Is_In_The_Range():
   field = Field(0)
   assert field.isFilednumberInRange(5) == True
 
+def test_getFieldnumberUp():
+  Config.Init(3)
+  field = Field(0)
+  assert field.getFieldnumberUp(5)[0] == True
+  assert field.getFieldnumberUp(5)[1] == 8
+
+
 

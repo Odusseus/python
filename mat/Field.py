@@ -81,55 +81,55 @@ class Field:
   def getFieldnumberUp(self, fieldnumber):
     upNumber = fieldnumber + Config.maxElement
     if not self.isFilednumberInRange(upNumber):
-      return None
+      return False, None
     else:
-      return upNumber
+      return True, upNumber
 
   def getFieldnumberUpRight(self, fieldnumber):
     upNumber = fieldnumber + Config.maxElement + 1
     if not self.isFilednumberInRange(upNumber):
-      return None
+      return False, None
     else:
-      return upNumber
+      return True, upNumber
 
   def getFieldnumberUpLeft(self, fieldnumber):
     upNumber = fieldnumber + Config.maxElement - 1
     if not self.isFilednumberInRange(upNumber):
-      return None
+      return False, None
     else:
-      return upNumber
+      return True, upNumber
 
   def getFieldnumberDown(self, fieldnumber):
     downNumber = fieldnumber - Config.maxElement
     if not self.isFilednumberInRange(downNumber):
-      return None
+      return False, None
     else:
-      return downNumber
+      return True, downNumber
 
   def getFieldnumberDownRight(self, fieldnumber):
     downNumber = fieldnumber - Config.maxElement - 1 
     if not self.isFilednumberInRange(downNumber):
-      return None
+      return False, None
     else:
-      return downNumber
+      return True, downNumber
 
   def getFieldnumberDownLeft(self, fieldnumber):
     downNumber = fieldnumber - Config.maxElement + 1 
     if not self.isFilednumberInRange(downNumber):
-      return None
+      return False, None
     else:
-      return downNumber
+      return True, downNumber
 
   def getFieldnumberLeft(self, fieldnumber):
     downNumber = fieldnumber -  1 
     if not self.isFilednumberInRange(downNumber):
-      return None
+      return False, None
     else:
-      return downNumber
+      return True, downNumber
 
   def getFieldnumberRight(self, fieldnumber):
     downNumber = fieldnumber + 1 
     if not self.isFilednumberInRange(downNumber):
-      return None
+      return False, None
     else:
-      return downNumber
+      return True, downNumber
