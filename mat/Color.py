@@ -1,11 +1,11 @@
 import Constant
 
 class Color:
-  def __init__(self, number):
-    assert number != None 
+  def __init__(self, id):
+    assert id != None 
 
-    self.number = number
-    if(number == 0):
+    self.id = id
+    if(id == 0):
      self.name = Constant.BLACKNAME
     else:
      self.name = Constant.WHITENAME

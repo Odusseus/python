@@ -5,56 +5,46 @@ import Common
 from Color import Color
 
 class Field:
-  def __init__(self, number):
-    assert number != None
+  def __init__(self, id):
+    assert id != None
 
-    self.number = number
-    self.color = self.numberToColor(self.number)
-    self.columnName = Common.numberToColumnName(number, Config.maxElement)
-    self.lineName = Common.numberToLineNumber(number, Config.maxElement)
+    self.id = id
+    self.color = self.idToColor(self.id)
+    self.columnName = Common.idToColumnName(id, Config.maxElement)
+    self.lineName = Common.idToLineNumber(id, Config.maxElement)
     self.name = self.columnName + str(self.lineName)
     self.piece = None
 
-  def numberToColor(self, number):
-    lineNumber = math.ceil(number/Config.maxElement)
+  def idToColor(self, id):
+    lineId = math.ceil(id/Config.maxElement)
     if Config.maxElement % 2 == 1:
       maxElementOdd = True
     else:
       maxElementOdd = False
 
-    if lineNumber % 2 == 1:
+    if lineId % 2 == 1:
       lineOdd = True
     else:
       lineOdd = False
 
-    if number % 2 == 1:
-      numberOdd = True
+    if id % 2 == 1:
+      idOdd = True
     else:
-      numberOdd = False
+      idOdd = False
 
     if maxElementOdd:
-      if numberOdd:
+      if idOdd:
         color = Color(Constant.BLACK)
       else:
         color = Color(Constant.WHITE)
-      # if lineOdd:
-      #   if numberOdd:
-      #     color = Color(Constant.BLACK)
-      #   else:
-      #     color = Color(Constant.WHITE)
-      # else:
-      #   if numberOdd:
-      #     color = Color(Constant.WHITE) 
-      #   else:
-      #     color = Color(Constant.BLACK)
     else:
       if lineOdd:
-        if numberOdd:
+        if idOdd:
           color = Color(Constant.BLACK)
         else:
           color = Color(Constant.WHITE)
       else:
-        if numberOdd:
+        if idOdd:
           color = Color(Constant.WHITE) 
         else:
           color = Color(Constant.BLACK)
@@ -72,72 +62,72 @@ class Field:
   def getFirstElement(self):
     return 1
 
-  def isFilednumberInRange(self, fieldNumber):
-    if (fieldNumber == None
-        or fieldNumber < self.getFirstElement() 
-        or fieldNumber > self.getLastElement()):
+  def isFieldIdInRange(self, fieldId):
+    if (fieldId == None
+        or fieldId < self.getFirstElement() 
+        or fieldId > self.getLastElement()):
       return False
     else:
       return True
 
-  def getFieldnumberUp(self, fieldnumber):
-    upNumber = fieldnumber + Config.maxElement
-    if not self.isFilednumberInRange(upNumber):
+  def getFieldIdUp(self, fieldId):
+    upId = fieldId + Config.maxElement
+    if not self.isFieldIdInRange(upId):
       return False, None
     else:
-      return True, upNumber
+      return True, upId
 
-  def getFieldnumberUpRight(self, fieldnumber):
-    upNumber = fieldnumber + Config.maxElement + 1
-    if not self.isFilednumberInRange(upNumber):
+  def getFieldIdUpRight(self, fieldId):
+    upId = fieldId + Config.maxElement + 1
+    if not self.isFieldIdInRange(upId):
       return False, None
     else:
-      return True, upNumber
+      return True, upId
 
-  def getFieldnumberUpLeft(self, fieldnumber):
-    upNumber = fieldnumber + Config.maxElement - 1
-    if not self.isFilednumberInRange(upNumber):
+  def getFieldIdUpLeft(self, fieldId):
+    upId = fieldId + Config.maxElement - 1
+    if not self.isFieldIdInRange(upId):
       return False, None
     else:
-      return True, upNumber
+      return True, upId
 
-  def getFieldnumberDown(self, fieldnumber):
-    downNumber = fieldnumber - Config.maxElement
-    if not self.isFilednumberInRange(downNumber):
-      return False, None
-    else:
-      return True, downNumber
-
-  def getFieldnumberDownRight(self, fieldnumber):
-    downNumber = fieldnumber - Config.maxElement + 1 
-    if not self.isFilednumberInRange(downNumber):
+  def getFieldIdDown(self, fieldId):
+    downNumber = fieldId - Config.maxElement
+    if not self.isFieldIdInRange(downNumber):
       return False, None
     else:
       return True, downNumber
 
-  def getFieldnumberDownLeft(self, fieldnumber):
-    downNumber = fieldnumber - Config.maxElement - 1 
-    if not self.isFilednumberInRange(downNumber):
+  def getFieldIdDownRight(self, fieldId):
+    downNumber = fieldId - Config.maxElement + 1 
+    if not self.isFieldIdInRange(downNumber):
       return False, None
     else:
       return True, downNumber
 
-  def getFieldnumberLeft(self, fieldnumber):
-    downNumber = fieldnumber -  1 
+  def getFieldIdDownLeft(self, fieldId):
+    downNumber = fieldId - Config.maxElement - 1 
+    if not self.isFieldIdInRange(downNumber):
+      return False, None
+    else:
+      return True, downNumber
+
+  def getFieldIdLeft(self, fieldId):
+    downNumber = fieldId -  1 
     column = downNumber % Config.maxElement
     if column == 0:
       downNumber = 0
-    if not self.isFilednumberInRange(downNumber):
+    if not self.isFieldIdInRange(downNumber):
       return False, None
     else:
       return True, downNumber
 
-  def getFieldnumberRight(self, fieldnumber):
-    column = fieldnumber % Config.maxElement
+  def getFieldIdRight(self, fieldId):
+    column = fieldId % Config.maxElement
     downNumber = None 
     if column != 0:
-      downNumber = fieldnumber + 1 
-    if not self.isFilednumberInRange(downNumber):
+      downNumber = fieldId + 1 
+    if not self.isFieldIdInRange(downNumber):
       return False, None
     else:
       return True, downNumber

@@ -17,7 +17,7 @@ class Board:
     
     self.fieldnames = {} 
     for field in self.fields:
-      self.fieldnames[field.name] = field.number
+      self.fieldnames[field.name] = field.id
     
     self.pieces= []
 
@@ -26,4 +26,4 @@ class Board:
 
   def addPiece(self, piece):
     self.pieces.append(piece)
-    self.fields[piece.field.number].piece = piece
+    self.fields[piece.field.id].piece = piece

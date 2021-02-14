@@ -1,7 +1,7 @@
 {
   "python.testing.pytestArgs": [
     "mattest",
-    //"--no-cov", //enable to debug, diseable to check codecoverage
+    "--no-cov", //enable to debug, diseable to check codecoverage
     "--cov-report",
     "term",
     "--cov-report",

@@ -24,14 +24,14 @@ def createHtmlFile(filename, board):
       for j in range(1, board.maxElement + 1):      
         if j == 1: 
           _tr.add(th(line))
-        fieldnumber = Common.getFieldnumber(line, j, board.maxElement)
-        #fieldContent = board.fields[fieldnumber].name
+        fieldId = Common.getFieldId(line, j, board.maxElement)
+        #fieldContent = board.fields[fieldId].name
         fieldContent = ''
-        if board.fields[fieldnumber].piece != None:
-          #fieldContent = board.fields[fieldnumber].piece.shortNameColor
-          fieldContent = raw(board.fields[fieldnumber].piece.code)
+        if board.fields[fieldId].piece != None:
+          #fieldContent = board.fields[fieldId].piece.shortNameColor
+          fieldContent = raw(board.fields[fieldId].piece.code)
                     
-        _td = td(fieldContent, cls = board.fields[fieldnumber].color.name)
+        _td = td(fieldContent, cls = board.fields[fieldId].color.name)
         _tr.add(_td)
     else :
       _tr = None
@@ -39,7 +39,7 @@ def createHtmlFile(filename, board):
         if j == 1:
           _tr = _tbody.add(tr())
           _tr.add(th())
-        _tr.add(th(Common.numberToColumnName(j, board.maxElement)))
+        _tr.add(th(Common.idToColumnName(j, board.maxElement)))
   
   path = pathlib.Path(__file__).parent.absolute()
   sb = os.path.join(path, "sb")
@@ -72,8 +72,8 @@ def createHtmlFileFlipped(filename, board):
       for j in range(1, board.maxElement + 1):      
         if j == 1: 
           _tr.add(th(line))
-        fieldnumber = Common.getFieldnumberFlipped(line, j, board.maxElement)
-        _td = td(board.fields[fieldnumber].number, cls = board.fields[fieldnumber].color.name)
+        fieldId = Common.getFieldIdFlipped(line, j, board.maxElement)
+        _td = td(board.fields[fieldId].id, cls = board.fields[fieldId].color.name)
         _tr.add(_td)
     else :
       _tr = None
@@ -81,7 +81,7 @@ def createHtmlFileFlipped(filename, board):
         if j == board.maxElement:
           _tr = _tbody.add(tr())
           _tr.add(th())
-        _tr.add(th(Common.numberToColumnName(j, board.maxElement)))
+        _tr.add(th(Common.idToColumnName(j, board.maxElement)))
   
   path = pathlib.Path(__file__).parent.absolute()
   sb = os.path.join(path, "sb")
