@@ -15,37 +15,37 @@ class King(Piece):
     fieldId = self.field.id
     reatch = []
     fieldReatch = self.field.getFieldIdUp(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     fieldReatch = self.field.getFieldIdUpRight(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     fieldReatch = self.field.getFieldIdRight(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     fieldReatch = self.field.getFieldIdDownRight(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)    
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)    
      
     fieldReatch = self.field.getFieldIdDown(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     fieldReatch = self.field.getFieldIdDownLeft(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     fieldReatch = self.field.getFieldIdLeft(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
 
     
     fieldReatch = self.field.getFieldIdUpLeft(fieldId)
-    if fieldReatch != None:
-     reatch.append(fieldReatch)
+    if fieldReatch.isSet:
+     reatch.append(fieldReatch.id)
     
     return reatch
     

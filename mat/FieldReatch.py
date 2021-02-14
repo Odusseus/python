@@ -1,4 +1,4 @@
-class fieldReatch():
+class FieldReatch():
   def __init__(self, fieldId, isReatched = False):
-    self.fieldId = fieldId
-    self.isReatched = isReatched
+    self.id = fieldId
+    self.isSet = isReatched
