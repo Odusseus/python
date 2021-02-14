@@ -1,3 +1,4 @@
+import Config
 import Constant
 from Piece import Piece
 
@@ -11,8 +12,9 @@ class King(Piece):
       code,
       fieldId)
 
-  def move(self):
-    fieldId = self.field.id
+  def getFieldReatch(self, fieldId = None):
+    if fieldId == None:
+      fieldId = self.field.id
     reatch = []
     fieldReatch = self.field.getFieldIdUp(fieldId)
     if fieldReatch.isSet:
@@ -41,11 +43,24 @@ class King(Piece):
     fieldReatch = self.field.getFieldIdLeft(fieldId)
     if fieldReatch.isSet:
      reatch.append(fieldReatch.id)
-
     
     fieldReatch = self.field.getFieldIdUpLeft(fieldId)
     if fieldReatch.isSet:
      reatch.append(fieldReatch.id)
     
     return reatch
+
+  def getReatch(self):
+    saveFieldId = self.field.id
+    maxFiledId = Config.maxFieldId + 1
+    moves = []
+    for id in range(Config.minFieldId, maxFiledId):
+      self.setField(id)
+      fieldReatch = self.getFieldReatch(id)
+      if len(fieldReatch) > 0:
+        if len(moves) == 0:
+          moves.append(None)
+        moves.append(self.getFieldReatch(id))
     
+    self.setField(saveFieldId)
+    return moves

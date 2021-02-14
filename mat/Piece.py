@@ -16,6 +16,11 @@ class Piece:
     self.shortName = shortName
     self.color = Color(colorId)
     self.code = code
+    self.setField(fieldId_or_fieldstring)
+    self.shortNameColor = self.shortName + self.color.name[0].lower()
+    self.reach = []
+
+  def setField(self, fieldId_or_fieldstring = None):
     if fieldId_or_fieldstring == None:
       fieldId = None
       return
@@ -26,8 +31,5 @@ class Piece:
         fieldId = self.board.fieldnames.get(fieldId_or_fieldstring)
         if fieldId == None:
           message = f'{fieldId_or_fieldstring} is not found'
-          raise KeyError(message)
-          
+          raise KeyError(message)          
     self.field = Field(fieldId)
-    self.shortNameColor = self.shortName + self.color.name[0].lower()
-    self.reach = []

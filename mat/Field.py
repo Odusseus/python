@@ -63,16 +63,10 @@ class Field:
   def removePiece(self):
     self.piece = None
 
-  def getLastElement(self):
-    return Config.maxElement * Config.maxElement
-
-  def getFirstElement(self):
-    return 1
-
   def isFieldIdInRange(self, fieldId):
     if (fieldId == None
-        or fieldId < self.getFirstElement() 
-        or fieldId > self.getLastElement()):
+        or fieldId < Config.minFieldId 
+        or fieldId > Config.maxFieldId):
       return False
     else:
       return True
@@ -191,10 +185,9 @@ class Field:
     if id == None:
       id = self.id
     
-    maxFieldId = Config.maxElement * Config.maxElement
     columnId = id % Config.maxElement
 
-    if id > 0 and id <= maxFieldId and columnId == 0:
+    if id > 0 and id <= Config.maxFieldId and columnId == 0:
       return True
     else:
       return False
@@ -203,10 +196,9 @@ class Field:
     if id == None:
       id = self.id
     
-    maxFieldId = Config.maxElement * Config.maxElement
     columnId = id % Config.maxElement
 
-    if id == 1 or (id > 0 and id <= maxFieldId and columnId == 1):
+    if id == 1 or (id > 0 and id <= Config.maxFieldId and columnId == 1):
       return True
     else:
       return False

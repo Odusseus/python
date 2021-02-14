@@ -6,6 +6,12 @@ def Init(maxElementIn = Constant.MAX_ELEMENT, minElementIn = 1, randomIn = False
   
   global minElement
   minElement = minElementIn
+
+  global maxFieldId
+  maxFieldId = maxElementIn * maxElementIn
+  
+  global minFieldId
+  minFieldId = minElementIn
   
   global random
   random = randomIn

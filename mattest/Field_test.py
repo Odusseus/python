@@ -100,20 +100,6 @@ def test_idToColor_MaxElement_Odd():
   assert field.idToColor(17).id == 0
   assert field.idToColor(18).id == 1
 
-def test_getLastElement():
-  Config.Init()
-  field = Field(1)
-  assert field.getLastElement() == 64
-
-  Config.Init(9)
-  field = Field(1)
-  assert field.getLastElement() == 81
-  
-def test_getFirstElement():
-  Config.Init()
-  field = Field(1)
-  assert field.getFirstElement() == 1
-
 def test_isFieldIdInRange_Return_False_When_FieldId_Small_Than_First_Element():
   Config.Init()
   field = Field(0)
