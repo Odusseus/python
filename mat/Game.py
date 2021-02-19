@@ -3,7 +3,7 @@ import Constant
 import random
 from Board import Board
 from Box import Box
-from collections import deque
+#from collections import deque
 from Player import Player
 
 class Game:
@@ -11,7 +11,7 @@ class Game:
     self.playerW = Player('Ger', Constant.WHITE)
     self.playerB = Player('Pascal', Constant.BLACK)
     self.board = Board('First')
-    self.box = Box(Config)
+    self.box = Box()
   
     if Config.random:
       fields = list(range(1, (Config.maxElement * Config.maxElement) + 1))

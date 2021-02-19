@@ -11,7 +11,9 @@ class Box:
     True == True
 
   def getKingBlack(self, fieldId = None):
-     return King(Constant.BLACK, Constant.KINGBLACKCODE, fieldId)
+     piece = King(Constant.BLACK, Constant.KINGBLACKCODE, fieldId)
+     piece.setReachs()
+     return piece
 
   def getQueenBlack(self, fieldId = None):
     return Queen(Constant.BLACK, Constant.QUEENBLACKCODE, fieldId)
@@ -29,7 +31,9 @@ class Box:
     return Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, fieldId)
 
   def getKingWhite(self, fieldId = None):    
-    return King(Constant.WHITE, Constant.KINGWHITECODE, fieldId)
+    piece = King(Constant.WHITE, Constant.KINGWHITECODE, fieldId)
+    piece.setReachs()
+    return piece
 
   def getQueenWhite(self, fieldId = None):
     return Queen(Constant.WHITE, Constant.QUEENWHITECODE, fieldId)

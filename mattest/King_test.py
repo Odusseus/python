@@ -22,10 +22,10 @@ def test_King_with_field_return_a_King_on_a_Field():
   assert result.field.columnName == 'a'
   assert result.field.lineName == 1
 
-def test_King_getFieldReatch_on_5():
+def test_King_getFieldReach_on_5():
   Config.Init(3)
   king = King(Constant.WHITE, Constant.KINGWHITECODE, 5)
-  result = king.getFieldReatch(5)
+  result = king.getFieldReach(5)
   assert len(result) == 8
   assert 1 in result
   assert 2 in result
@@ -37,10 +37,10 @@ def test_King_getFieldReatch_on_5():
   assert 8 in result
   assert 9 in result
 
-def test_King_getFieldReatch_on_1():
+def test_King_getFieldReach_on_1():
   Config.Init(3)
   king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
-  result = king.getFieldReatch(1)
+  result = king.getFieldReach(1)
   assert len(result) == 3
   assert 4 in result
   assert 5 in result
@@ -50,14 +50,14 @@ def test_King_getReatch_When_maxElement_Is_1():
   maxElement = 1
   Config.Init(maxElement)
   king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
-  result = king.getReatch()
+  result = king.getReachs()
   assert len(result) == 0
 
-def test_King_getReatch_When_maxElement_Is_2():
+def test_King_getReach_When_maxElement_Is_2():
   maxElement = 2
   Config.Init(maxElement)
   king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
-  result = king.getReatch()
+  result = king.getAllReachs()
   assert len(result) == 5
   assert result[1][0] == 3
   assert result[1][1] == 4
@@ -75,11 +75,11 @@ def test_King_getReatch_When_maxElement_Is_2():
   assert result[4][1] == 1
   assert result[4][2] == 3
 
-def test_King_getReatch_When_maxElement_Is_3():
+def test_King_getReach_When_maxElement_Is_3():
   maxElement = 3
   Config.Init(maxElement)
   king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
-  result = king.getReatch()
+  result = king.getAllReachs()
   assert len(result) == 10
 
   assert result[1][0] == 4

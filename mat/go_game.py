@@ -2,7 +2,7 @@ import Config
 import Output
 from Game import Game
 
-Config.Init(30, 1, True)
+Config.Init(30, True)
 
 game = Game()
 
