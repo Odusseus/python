@@ -7,6 +7,7 @@ from Bishop import Bishop
 from Knight import Knight
 from Pawn import Pawn
 from Field import Field
+from Move import Move
 
 class Player:
   def __init__(self, name, colorCode, board = None):
@@ -22,60 +23,34 @@ class Player:
      self.board = Board()
 
   def play(self):
-    allPieces = self.board.getAllPieces()
-    myBoard = Board()
+    myPieces = self.board.getPieces(self.color)
+    candidateBoards = []
+    for myPiece in myPieces: 
+      reachs = myPiece.getReachs()
+      candidateMoves = []
+      for reachFieldId in reachs:
+        field = self.board.fields[reachFieldId]
+        if field.piece != None and field.piece.color.id == myPiece.color.id:
+          break
+        newField = Field(reachFieldId)
+        if field.piece != None and field.piece.color.id != myPiece.color.id:
+          newField.piece = field.piece
+        candidateMoves.append(newField)
 
-    for allPiece in allPieces:
-      if isinstance(allPiece, King):
-        piece = King(
-                allPiece.color.id,
-                allPiece.code,
-                allPiece.field.id)
-        piece.reachs = allPiece.reachs
-      elif isinstance(allPiece, Queen):
-        raise TypeError("Argument type not implementated.")
-           
-      elif isinstance(allPiece, Rook):
-        raise TypeError("Argument type not implementated.")
-           
-      elif isinstance(allPiece, Bishop):
-        raise TypeError("Argument type not implementated.")
-           
-      elif isinstance(allPiece, Knight):
-        raise TypeError("Argument type not implementated.")
-           
-      elif isinstance(allPiece, Pawn):
-        raise TypeError("Argument type not implementated.")
-           
+      for candidateMove in candidateMoves:
+        board = self.board.clone()
+        move = Move(myPiece.field.id, candidateMove.id)
+        board.play(move)
+        if (board.isCheck() == True):
+          break
+        else:
+          board.evaluate()
+          candidateBoards.append(board)
+
+      sorted(candidateBoards, key=lambda board: board.value)
+      if len(candidateBoards) > 0:
+       return candidateBoards[0].lastMove
       else:
-        raise TypeError("Wrong argument type.")       
-      myBoard.addPiece(piece)
-    myPieces = myBoard.getPieces(self.color)
-    myPiece = myPieces[0]
-    reachs = myPiece.getReachs()
-    candidateMoves = []
-    for reachFieldId in reachs:
-      field = myBoard.fields[reachFieldId]
-      if field.piece != None and field.piece.color.id == myPiece.color.id:
-       continue
-      newField = Field(reachFieldId)
-      if field.piece != None and field.piece.color.id != myPiece.color.id:
-        newField.piece = field.piece
-      candidateMoves.append(newField);    
-    
-    # TODO
-    # fields = []
-    # for i in range(1, myBoard.getMaxField() + 1):
-    #   if i == 1:
-    #     fields.append(Field(0)) # Field 0 doesn't exist
-    #   fields.append(Field(i))
-
-    # otherColor =  self.color.getOpposite()
-    # otherPieces = myBoard.getPieces(otherColor)
-    # for otherPiece in otherPieces:
-    #   reachs = otherPiece.getReachs()
-    #   for reachFieldId in reachs:
-    #   fields[reachFieldId] = 
-    
-    
-    return myPiece
+       return None
+        
+    return None

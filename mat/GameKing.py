@@ -10,7 +10,7 @@ from Player import Player
 
 class GameKing:
   def __init__(self):
-    self.board = Board('First')
+    self.board = Board(0, 'First')
     self.playerWhite = Player('Ger', Constant.WHITE, self.board)
     self.playerBlack = Player('Pascal', Constant.BLACK, self.board)
     self.box = Box()
@@ -20,23 +20,26 @@ class GameKing:
       random.shuffle(fields)
 
       if len(fields) != 0:
-        self.board.addPiece(self.box.getKingWhite(fields.pop()))
+        self.board.setPiece(self.box.getKingWhite(fields.pop()))
       if len(fields) != 0:
-        self.board.addPiece(self.box.getKingBlack(fields.pop()))
+        self.board.setPiece(self.box.getKingBlack(fields.pop()))
 
     elif Config.maxElement == 8:
-      self.board.addPiece(self.box.getKingWhite('e1'))
+      self.board.setPiece(self.box.getKingWhite('e1'))
      
-      self.board.addPiece(self.box.getKingBlack('e8'))
+      self.board.setPiece(self.box.getKingBlack('e8'))
 
     colorToPlay = Constant.WHITE
     while True:
       if colorToPlay == Constant.WHITE:
-        self.playerWhite.play()
+        move = self.playerWhite.play()
         colorToPlay = Constant.BLACK
       else:
-        self.playerBlack.play()
+        move = self.playerBlack.play()
         colorToPlay = Constant.WHITE
+      if move == None:
+        break
+      self.board.play(move)
 
       Output.createHtmlFile('game.html', self.board)
       input("Press Enter to continue...")

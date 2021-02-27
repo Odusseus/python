@@ -26,7 +26,7 @@ def test_getMaxField_Add_a_piece():
   Config.Init(8)
   board = Board()
   piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, 1)
-  board.addPiece(piece)
+  board.setPiece(piece)
 
   assert board.fields[1].piece.name == Constant.KING  
 

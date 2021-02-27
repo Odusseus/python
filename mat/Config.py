@@ -15,3 +15,6 @@ def Init(maxElementIn = Constant.MAX_ELEMENT, randomIn = False):
   
   global random
   random = randomIn
+
+  global maxPiece
+  maxPiece = 0

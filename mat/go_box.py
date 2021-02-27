@@ -1,5 +1,5 @@
+import Config
 from Box import Box
-from Config import Config
 
 Config.Init()
 box = Box()
