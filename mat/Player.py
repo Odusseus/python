@@ -8,6 +8,7 @@ from Knight import Knight
 from Pawn import Pawn
 from Field import Field
 from Move import Move
+import Constant
 
 class Player:
   def __init__(self, name, colorCode, board = None):
@@ -44,12 +45,16 @@ class Player:
         if (board.isCheck() == True):
           break
         else:
-          board.evaluate()
+          board.evaluate() 
           candidateBoards.append(board)
 
       sorted(candidateBoards, key=lambda board: board.value)
       if len(candidateBoards) > 0:
-       return candidateBoards[0].lastMove
+        if self.color == Constant.WHITE:
+          index = 0
+        else:
+          index = len(candidateBoards) - 1
+        return candidateBoards[index].lastMove
       else:
        return None
         
