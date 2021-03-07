@@ -10,8 +10,8 @@ class Bishop(Piece):
             Constant.BISHOPSHORT,
             colorId,
             pieceCode,
-            fieldId,
-            value
+            value,
+            fieldId
         )
 
     def clone(self):

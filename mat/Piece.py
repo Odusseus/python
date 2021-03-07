@@ -10,11 +10,12 @@ from Board import Board
 
 class Piece(ABC):
 
-    def __init__(self, name, shortName, colorId, pieceCode, fieldId_or_fieldstring=None, value=None):
+    def __init__(self, name, shortName, colorId, pieceCode, value, fieldId_or_fieldstring=None):
         assert name != None
         assert shortName != None
         assert colorId != None
         assert pieceCode != None
+        assert value != None
 
         self.board = Board()
         Config.maxPiece += 1
@@ -28,8 +29,7 @@ class Piece(ABC):
         self.shortNameColor = self.shortName + self.color.name[0].lower()
         self.reachs = []
         self.currentReachs = []
-        self.value = None
-        self.setValue(value)
+        self.value = value
 
     def clone(self):
         pass

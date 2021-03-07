@@ -7,13 +7,13 @@ Config.Init()
 
 def test_Bishop_return_a_Bishop():
   Config.Init()
-  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE)
+  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, Constant.BISHOPVALUE)
   assert bishop.color.id == Constant.BLACK
   assert bishop.color.name == Constant.BLACKNAME
 
 def test_Bishop_with_field_return_a_Bishop_on_a_Field():
   Config.Init()
-  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, 3, 1)
+  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, Constant.BISHOPVALUE, 1)
   assert bishop.color.id == Constant.BLACK
   assert bishop.color.name == Constant.BLACKNAME
   assert bishop.field.id == 1
@@ -23,7 +23,7 @@ def test_Bishop_with_field_return_a_Bishop_on_a_Field():
 
 def test_clone():
   Config.Init()
-  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, 3, 1)
+  bishop = Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, Constant.BISHOPVALUE, 1)
   
   clone = bishop.clone()
   assert clone.color.id == bishop.color.id

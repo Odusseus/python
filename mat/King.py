@@ -4,15 +4,15 @@ from Piece import Piece
 
 
 class King(Piece):
-    def __init__(self, color, pieceCode, fieldId=None, value=None):
+    def __init__(self, color, pieceCode, value=None, fieldId=None):
         Piece.__init__(
             self,
             Constant.KING,
             Constant.KINGSHORT,
             color,
             pieceCode,
-            fieldId,
-            value
+            value,
+            fieldId
         )
 
     def getFieldReach(self, fieldId=None):
@@ -54,7 +54,7 @@ class King(Piece):
         return reach
 
     def clone(self):
-        clone = King(self.color.id, self.code, self.field.id, self.value)
+        clone = King(self.color.id, self.code, self.value, self.field.id)
         return clone
 
     def setCurrentReachs(self, pieces):
