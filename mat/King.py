@@ -56,3 +56,11 @@ class King(Piece):
     def clone(self):
         clone = King(self.color.id, self.code, self.field.id, self.value)
         return clone
+
+    def setCurrentReachs(self, pieces):
+        currentReachs = []
+        for reach in self.reachs:
+            for piece in pieces:
+                if piece.field.id != reach:
+                    currentReachs.append(reach)
+        self.currentReachs = currentReachs

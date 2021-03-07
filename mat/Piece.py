@@ -27,6 +27,7 @@ class Piece(ABC):
         self.setField(fieldId_or_fieldstring)
         self.shortNameColor = self.shortName + self.color.name[0].lower()
         self.reachs = []
+        self.currentReachs = []
         self.value = None
         self.setValue(value)
 
@@ -101,3 +102,9 @@ class Piece(ABC):
                 self.value = Constant.KNIGHTVALUE
             elif self.name == Constant.PAWN:
                 self.value = Constant.PAWNVALUE         
+
+    def setCurrentReachs(self, pieces):
+        self.currentReachs = []
+    
+    def getCurrentReachs(self):
+        return self.currentReachs

@@ -33,12 +33,24 @@ class GameKing:
     while True:
       if colorToPlay == Constant.WHITE:
         move = self.playerWhite.play()
+        if move == None:
+          if self.board.isCheck(colorToPlay):
+            message = f'White is checkmate.'
+          else:
+            message = f'White is pat.'
+          print(message)
+          break
         colorToPlay = Constant.BLACK
       else:
         move = self.playerBlack.play()
+        if move == None:
+          if self.board.isCheck(colorToPlay):
+            message = f'Black is checkmate.'
+          else:
+            message = f'Black is pat.'
+          print(message)
+          break        
         colorToPlay = Constant.WHITE
-      if move == None:
-        break
       self.board.play(move)
 
       Output.createHtmlFile('game.html', self.board)

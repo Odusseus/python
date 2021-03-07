@@ -42,9 +42,9 @@ class Player:
         board = self.board.clone()
         move = Move(myPiece.field.id, candidateMove.id)
         board.play(move)
-        if (board.isCheck() == True):
+        if (board.isCheck(self.color.id) == True):
           break
-        else:
+        else:          
           board.evaluate() 
           candidateBoards.append(board)
 
