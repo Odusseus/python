@@ -14,11 +14,7 @@ class Color:
      raise KeyError(message)
 
   def getOpposite(self):
-    self.id = id
-    if(id == Constant.WHITE):
+    if(self.id == Constant.WHITE):
      return Color(Constant.BLACK)
-    elif (id == Constant.BLACK):
+    elif (self.id == Constant.BLACK):
      return Color(Constant.WHITE)
-    else:
-     message = f'Color {id} is not found.'
-     raise KeyError(message)

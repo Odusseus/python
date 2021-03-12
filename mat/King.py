@@ -4,7 +4,11 @@ from Piece import Piece
 
 
 class King(Piece):
-    def __init__(self, color, pieceCode, value=None, fieldId=None):
+    def __init__(self, color, pieceCode, fieldId=None, value=None):
+        assert color != None
+        assert pieceCode != None
+        if value == None:
+            value = Constant.KINGVALUE
         Piece.__init__(
             self,
             Constant.KING,
@@ -54,13 +58,21 @@ class King(Piece):
         return reach
 
     def clone(self):
-        clone = King(self.color.id, self.code, self.value, self.field.id)
+        id = None
+        if self.field != None:
+          id = self.field.id
+        clone = King(self.color.id, self.code, id, self.value)
         return clone
 
     def setCurrentReachs(self, pieces):
+        reachs = self.getReachs()
+        if pieces == None:
+            self.currentReachs = reachs
+            return
+
         currentReachs = []
-        for reach in self.reachs:
+        for reach in reachs:
             for piece in pieces:
-                if piece.field.id != reach:
+                if piece.color.id == self.color.id and piece.field.id != reach:
                     currentReachs.append(reach)
         self.currentReachs = currentReachs

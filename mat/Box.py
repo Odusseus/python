@@ -11,41 +11,41 @@ class Box:
     True == True
 
   def getKingBlack(self, fieldId = None):
-     piece = King(Constant.BLACK, Constant.KINGBLACKCODE, Constant.KINGVALUE, fieldId)
+     piece = King(Constant.BLACK, Constant.KINGBLACKCODE, fieldId)
      piece.setReachs()
      return piece
 
   def getQueenBlack(self, fieldId = None):
-    return Queen(Constant.BLACK, Constant.QUEENBLACKCODE, Constant.QUEENVALUE, fieldId)
+    return Queen(Constant.BLACK, Constant.QUEENBLACKCODE, fieldId)
 
   def getRookBlack(self, fieldId = None):
-    return Rook(Constant.BLACK, Constant.ROOKBLACKCODE, Constant.ROOKVALUE, fieldId)
+    return Rook(Constant.BLACK, Constant.ROOKBLACKCODE, fieldId)
 
   def getBishopBlack(self, fieldId = None):
-    return Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, Constant.BISHOPVALUE, fieldId)
+    return Bishop(Constant.BLACK, Constant.BISHOPBLACKCODE, fieldId)
 
   def getKnightBlack(self, fieldId = None):
-    return Knight(Constant.BLACK, Constant.KNIGHTBLACKCODE, Constant.KNIGHTVALUE, fieldId)
+    return Knight(Constant.BLACK, Constant.KNIGHTBLACKCODE, fieldId)
 
   def getPawnBlack(self, fieldId = None):
-    return Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, Constant.PAWNVALUE, fieldId)
+    return Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, fieldId)
 
   def getKingWhite(self, fieldId = None):    
-    piece = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, fieldId)
+    piece = King(Constant.WHITE, Constant.KINGWHITECODE, fieldId)
     piece.setReachs()
     return piece
 
   def getQueenWhite(self, fieldId = None):
-    return Queen(Constant.WHITE, Constant.QUEENWHITECODE, Constant.QUEENVALUE, fieldId)
+    return Queen(Constant.WHITE, Constant.QUEENWHITECODE, fieldId)
 
   def getRookWhite(self, fieldId = None):
-    return Rook(Constant.WHITE, Constant.ROOKWHITECODE, Constant.ROOKVALUE, fieldId)
+    return Rook(Constant.WHITE, Constant.ROOKWHITECODE, fieldId)
 
   def getBishopWhite(self, fieldId = None):
-    return Bishop(Constant.WHITE, Constant.BISHOPWHITECODE, Constant.BISHOPVALUE, fieldId)
+    return Bishop(Constant.WHITE, Constant.BISHOPWHITECODE, fieldId)
 
   def getKnightWhite(self, fieldId = None):
-    return  Knight(Constant.WHITE, Constant.KNIGHTWHITECODE, Constant.KNIGHTVALUE, fieldId)
+    return  Knight(Constant.WHITE, Constant.KNIGHTWHITECODE, fieldId)
 
   def getPawnWhite(self, fieldId = None):
-    return Pawn(Constant.WHITE, Constant.PAWNWHITECODE, Constant.PAWNVALUE, fieldId)
+    return Pawn(Constant.WHITE, Constant.PAWNWHITECODE, fieldId)
