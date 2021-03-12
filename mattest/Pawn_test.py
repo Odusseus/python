@@ -4,7 +4,7 @@ from Pawn import Pawn
 
 def test_Pawn_return_a_Pawn():
   Config.Init(8)
-  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE)
+  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, Constant.PAWNVALUE)
   assert result.name == Constant.PAWN
   assert result.shortName == Constant.PAWNSHORT
   assert result.color.id == Constant.BLACK
@@ -12,7 +12,7 @@ def test_Pawn_return_a_Pawn():
 
 def test_Pawn_with_field_return_a_Pawn_on_a_Field():
   Config.Init(8)
-  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, 1)
+  result = Pawn(Constant.BLACK, Constant.PAWNBLACKCODE, Constant.PAWNVALUE, 1)
   assert result.color.id == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
   assert result.name == Constant.PAWN

@@ -5,13 +5,13 @@ from Piece import Piece
 
 def test_Piece_return_a_Piece():
   Config.Init(8)
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KNIGHTVALUE)
   assert piece.color.id == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 
 def test_Piece_with_fieldId_return_a_Piece_on_a_fied():
   Config.Init(8)
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, 1)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KNIGHTVALUE, 1)
   assert piece.color.id == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 
@@ -22,7 +22,7 @@ def test_Piece_with_fieldId_return_a_Piece_on_a_fied():
 
 def test_Piece_with_fieldname_return_a_Piece_on_a_fied():
   Config.Init(8)
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE,'a1')
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KNIGHTVALUE,'a1')
   assert piece.color.id == Constant.BLACK
   assert piece.color.name == Constant.BLACKNAME
 
@@ -35,7 +35,7 @@ def test_Piece_with_invalide_fieldname_Raise_A_Error():
   Config.Init(8)
   
   try:
-    Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE,'i1')
+    Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KNIGHTVALUE,'i1')
     assert True == False
   except Exception as e:
     assert e.__doc__ == "Mapping key not found."

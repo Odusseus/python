@@ -4,7 +4,7 @@ from King import King
 
 def test_King_return_a_King():
   Config.Init(8)
-  result = King(Constant.BLACK, Constant.KINGBLACKCODE)
+  result = King(Constant.BLACK, Constant.KINGBLACKCODE, Constant.KINGVALUE)
   assert result.name == Constant.KING
   assert result.shortName == Constant.KINGSHORT
   assert result.color.id == Constant.BLACK
@@ -12,7 +12,7 @@ def test_King_return_a_King():
 
 def test_King_with_field_return_a_King_on_a_Field():
   Config.Init(8)
-  result = King(Constant.BLACK, Constant.KINGBLACKCODE, 1)
+  result = King(Constant.BLACK, Constant.KINGBLACKCODE, Constant.KINGVALUE, 1)
   assert result.color.id == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
   assert result.name == Constant.KING
@@ -24,7 +24,7 @@ def test_King_with_field_return_a_King_on_a_Field():
 
 def test_King_getFieldReach_on_5():
   Config.Init(3)
-  king = King(Constant.WHITE, Constant.KINGWHITECODE, 5)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, 5)
   result = king.getFieldReach(5)
   assert len(result) == 8
   assert 1 in result
@@ -39,7 +39,7 @@ def test_King_getFieldReach_on_5():
 
 def test_King_getFieldReach_on_1():
   Config.Init(3)
-  king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, 1)
   result = king.getFieldReach(1)
   assert len(result) == 3
   assert 4 in result
@@ -49,14 +49,14 @@ def test_King_getFieldReach_on_1():
 def test_King_getReatch_When_maxElement_Is_1():
   maxElement = 1
   Config.Init(maxElement)
-  king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, 1)
   result = king.getReachs()
   assert len(result) == 0
 
 def test_King_getReach_When_maxElement_Is_2():
   maxElement = 2
   Config.Init(maxElement)
-  king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, 1)
   result = king.getAllReachs()
   assert len(result) == 5
   assert result[1][0] == 3
@@ -78,7 +78,7 @@ def test_King_getReach_When_maxElement_Is_2():
 def test_King_getReach_When_maxElement_Is_3():
   maxElement = 3
   Config.Init(maxElement)
-  king = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, Constant.KINGVALUE, 1)
   result = king.getAllReachs()
   assert len(result) == 10
 

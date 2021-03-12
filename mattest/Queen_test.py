@@ -4,7 +4,7 @@ from Queen import Queen
 
 def test_Queen_return_a_Queen():
   Config.Init(8)
-  result = Queen(Constant.BLACK, Constant.QUEENBLACKCODE)
+  result = Queen(Constant.BLACK, Constant.QUEENBLACKCODE, Constant.QUEENVALUE)
   assert result.name == Constant.QUEEN
   assert result.shortName == Constant.QUEENSHORT
   assert result.color.id == Constant.BLACK
@@ -12,7 +12,7 @@ def test_Queen_return_a_Queen():
 
 def test_Queen_with_field_return_a_Queen_on_a_Field():
   Config.Init(8)
-  result = Queen(Constant.BLACK, Constant.QUEENBLACKCODE, 1)
+  result = Queen(Constant.BLACK, Constant.QUEENBLACKCODE, Constant.QUEENVALUE, 1)
   assert result.color.id == Constant.BLACK
   assert result.color.name == Constant.BLACKNAME
   assert result.name == Constant.QUEEN

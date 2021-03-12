@@ -35,7 +35,7 @@ def test_setPiece():
   # Arrange
   Config.Init()
   field = Field(1)
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KINGVALUE)
   
   # Act
   field.setPiece(piece)
@@ -46,7 +46,7 @@ def test_removePiece():
   # Arrange
   Config.Init()
   field = Field(1)
-  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE)
+  piece = Piece(Constant.KING, Constant.KINGSHORT, Constant.BLACK, Constant.KINGBLACKCODE, Constant.KINGVALUE)
   field.setPiece(piece)
 
   # Act
