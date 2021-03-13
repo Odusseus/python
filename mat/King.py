@@ -72,7 +72,11 @@ class King(Piece):
 
         currentReachs = []
         for reach in reachs:
-            for piece in pieces:
-                if piece.color.id == self.color.id and piece.field.id != reach:
-                    currentReachs.append(reach)
+          add = True
+          for piece in pieces:
+            if reach == piece.field.id and piece.color.id == self.color.id:
+              add = False
+          if add: 
+            currentReachs.append(reach)
         self.currentReachs = currentReachs
+

@@ -28,6 +28,13 @@ class GameKing:
       self.board.setPiece(self.box.getKingWhite('e1'))
      
       self.board.setPiece(self.box.getKingBlack('e8'))
+    
+    elif Config.maxElement == 3:
+      self.board.setPiece(self.box.getKingWhite(1))
+     
+      self.board.setPiece(self.box.getKingBlack(3))
+
+    self.board.setCurrentReachs()
 
     colorToPlay = Constant.WHITE
     while True:
@@ -52,6 +59,8 @@ class GameKing:
           break        
         colorToPlay = Constant.WHITE
       self.board.play(move)
+      message = f'from {move.fromFieldId} to {move.toFieldId}'
+      print(message)
 
       Output.createHtmlFile('game.html', self.board)
       input("Press Enter to continue...")

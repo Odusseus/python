@@ -31,7 +31,7 @@ class Board:
     def getMaxField(self):
         return self.maxLine * self.maxColumn
 
-    def setPiece(self, piece):
+    def setPiece(self, piece):        
         if piece.color.id == Constant.WHITE:
             self.whitePieces.append(piece)
         else:
@@ -74,8 +74,15 @@ class Board:
         pieces = self.getAllPieces()
         for piece in pieces:
             clone = piece.clone()
+            clone.setReachs()
             board.setPiece(clone)
+        board.setCurrentReachs()
         return board
+
+    def setCurrentReachs(self):
+        pieces = self.getAllPieces()
+        for piece in pieces:
+            piece.setCurrentReachs(pieces)
 
     def play(self, move):
         piece = self.fields[move.fromFieldId].piece
@@ -91,6 +98,7 @@ class Board:
         self.cleanField(move.fromFieldId)
         self.lastMove = move
         self.moves.append(move)
+        self.setCurrentReachs()
 
     def isCheck(self, colorId):
         king = self.getKing(colorId)
@@ -102,6 +110,7 @@ class Board:
             opponentPieces = self.getPieces(colorWhite)
         isCheck = False
         for piece in opponentPieces:
+            #if piece
             currentReachs = piece.getCurrentReachs()
             for reach in currentReachs:
                 if king.field.id == reach:
@@ -109,11 +118,11 @@ class Board:
         return isCheck
 
     def evaluate(self):
-        for piece in self.getAllPieces():
-            if piece.color.id == Constant.WHITE:
-                piece.setCurrentReachs(self.whitePieces)
-            else:
-                piece.setCurrentReachs(self.blackPieces)
+        # for piece in self.getAllPieces():
+        #     if piece.color.id == Constant.WHITE:
+        #         piece.setCurrentReachs(self.whitePieces)
+        #     else:
+        #         piece.setCurrentReachs(self.blackPieces)
 
         value = 0
         for piece in self.getAllPieces():

@@ -107,4 +107,4 @@ class Piece(ABC):
         self.currentReachs = []
     
     def getCurrentReachs(self):
-        return self.currentReachs
+        return self.currentReachs   
