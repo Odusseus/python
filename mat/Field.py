@@ -19,6 +19,7 @@ class Field:
     self.isRight = self.setIsRight()
     self.isBottom = self.setIsBottom()
     self.isLeft = self.setIsLeft()
+    self.value = 0
 
   def idToColor(self, id = None):
     if id == None:

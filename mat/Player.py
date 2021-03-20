@@ -25,7 +25,7 @@ class Player:
      self.board = Board()
 
   def play(self):
-    myPieces = self.board.getPieces(self.color)
+    myPieces = self.board.getPieces(self.color.id)
     candidateBoards = []
     for myPiece in myPieces: 
       reachs = myPiece.getCurrentReachs()

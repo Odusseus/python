@@ -33,6 +33,10 @@ class GameKing:
       self.board.setPiece(self.box.getKingWhite(1))
      
       self.board.setPiece(self.box.getKingBlack(3))
+    elif Config.maxElement == 2:
+      self.board.setPiece(self.box.getKingWhite(1))
+     
+      self.board.setPiece(self.box.getKingBlack(4))
 
     self.board.setCurrentReachs()
 

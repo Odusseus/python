@@ -44,14 +44,14 @@ class Board:
     def deletePiece(self, piece):
         if piece.color.id == Constant.WHITE:
             self.whitePieces = [
-                piece for piece in self.whitePieces if piece.id != piece.id]
+                whitePiece for whitePiece in self.whitePieces if whitePiece.id != piece.id]
         else:
             self.blackPieces = [
-                piece for piece in self.blackPieces if piece.id != piece.id]
+                blackPiece for blackPiece in self.blackPieces if blackPiece.id != piece.id]
         self.fields[piece.field.id].piece = None
 
-    def getPieces(self, color):
-        if color.id == Constant.WHITE:
+    def getPieces(self, colorId):
+        if colorId == Constant.WHITE:
             return self.whitePieces
         else:
             return self.blackPieces
@@ -103,11 +103,9 @@ class Board:
     def isCheck(self, colorId):
         king = self.getKing(colorId)
         if (colorId == Constant.WHITE):
-            colorBlack = Color(Constant.BLACK)
-            opponentPieces = self.getPieces(colorBlack)
+            opponentPieces = self.getPieces(Constant.BLACK)
         else:
-            colorWhite = Color(Constant.WHITE)
-            opponentPieces = self.getPieces(colorWhite)
+            opponentPieces = self.getPieces(Constant.WHITE)
         isCheck = False
         for piece in opponentPieces:
             #if piece
@@ -118,12 +116,6 @@ class Board:
         return isCheck
 
     def evaluate(self):
-        # for piece in self.getAllPieces():
-        #     if piece.color.id == Constant.WHITE:
-        #         piece.setCurrentReachs(self.whitePieces)
-        #     else:
-        #         piece.setCurrentReachs(self.blackPieces)
-
         value = 0
         for piece in self.getAllPieces():
             if piece.color.id == Constant.WHITE:

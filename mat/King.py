@@ -57,12 +57,13 @@ class King(Piece):
 
         return reach
 
-    def clone(self):
-        id = None
-        if self.field != None:
-          id = self.field.id
-        clone = King(self.color.id, self.code, id, self.value)
-        return clone
+    # TODO clean up
+    # def clone(self):
+    #     id = None
+    #     if self.field != None:
+    #       id = self.field.id
+    #     clone = King(self.color.id, self.code, id, self.value)
+    #     return clone
 
     def setCurrentReachs(self, pieces):
         reachs = self.getReachs()

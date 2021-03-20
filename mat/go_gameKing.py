@@ -2,7 +2,7 @@ import Config
 #import Output
 from GameKing import GameKing
 
-Config.Init(3, False)
+Config.Init(5, False)
 
 game = GameKing()
 

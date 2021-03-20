@@ -32,7 +32,11 @@ class Piece(ABC):
         self.value = value
 
     def clone(self):
-        pass
+        id = None
+        if self.field != None:
+          id = self.field.id
+        clone = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        return clone
 
     def setField(self, fieldId_or_fieldstring=None):
         if fieldId_or_fieldstring == None:
