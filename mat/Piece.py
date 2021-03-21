@@ -37,9 +37,8 @@ class Piece(ABC):
         id = None
         if self.field != None:
           id = self.field.id
-          raise Exception("TODO refactor correct piece type")
-        #clone = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        return clone
+        piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        return piece
 
     def setField(self, fieldId_or_fieldstring=None):
         if fieldId_or_fieldstring == None:
@@ -58,7 +57,7 @@ class Piece(ABC):
     def getFieldReach(self, fieldId ):
         #raise Exception("Piece.getFieldReach not implementeted")
         reach = []
-        if fieldId != None:
+        if self.reachs != None:
           reach = self.reachs[fieldId]
         return reach
 
