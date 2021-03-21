@@ -18,11 +18,11 @@ def test_Board_return_a_Board():
 def test_getMaxField_return_MaxField():
   Config.Init(8)
   result = Board()
-  assert result.getMaxField() == 64
+  assert result.getMaxField() == 65
 
   Config.Init(9)
   result2 = Board()
-  assert result2.getMaxField() == 81  
+  assert result2.getMaxField() == 82 
 
 
 def test_setPiece_Add_a_piece():
