@@ -11,6 +11,7 @@ from Player import Player
 class GameKing:
   def __init__(self):
     self.board = Board(0, 'First')
+    self.board.setFieldsValue()
     self.playerWhite = Player('Ger', Constant.WHITE, self.board)
     self.playerBlack = Player('Pascal', Constant.BLACK, self.board)
     self.box = Box()

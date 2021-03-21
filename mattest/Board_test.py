@@ -173,8 +173,84 @@ def test_evaluate_return_min_0_when_both_kings_are_on_the_board():
 
   assert board.value == 0
 
+def test_setFieldsValue():
+    Config.Init(8)
+    board = Board()
 
+    board.setFieldsValue()
+    
+    assert board.fields[1].value == 2
+    assert board.fields[2].value == 3
+    assert board.fields[3].value == 4
+    assert board.fields[4].value == 5 
+    assert board.fields[5].value == 5
+    assert board.fields[6].value == 4
+    assert board.fields[7].value == 3
+    assert board.fields[8].value == 2
 
+    assert board.fields[9].value == 3
+    assert board.fields[10].value == 4
+    assert board.fields[11].value == 5
+    assert board.fields[12].value == 6
+    assert board.fields[13].value == 6
+    assert board.fields[14].value == 5
+    assert board.fields[15].value == 4
+    assert board.fields[16].value == 3
+    
+    assert board.fields[17].value == 4
+    assert board.fields[18].value == 5
+    assert board.fields[19].value == 6
+    assert board.fields[20].value == 7
+    assert board.fields[21].value == 7
+    assert board.fields[22].value == 6
+    assert board.fields[23].value == 5
+    assert board.fields[24].value == 4 
+    
+    assert board.fields[25].value == 5
+    assert board.fields[26].value == 6
+    assert board.fields[27].value == 7
+    assert board.fields[28].value == 8
+    assert board.fields[29].value == 8
+    assert board.fields[30].value == 7
+    assert board.fields[31].value == 6
+    assert board.fields[32].value == 5
+
+    assert board.fields[33].value == 5
+    assert board.fields[34].value == 6
+    assert board.fields[35].value == 7
+    assert board.fields[36].value == 8
+    assert board.fields[37].value == 8
+    assert board.fields[38].value == 7
+    assert board.fields[39].value == 6
+    assert board.fields[40].value == 5
+
+    assert board.fields[41].value == 4
+    assert board.fields[42].value == 5
+    assert board.fields[43].value == 6
+    assert board.fields[44].value == 7 
+    assert board.fields[45].value == 7
+    assert board.fields[46].value == 6
+    assert board.fields[47].value == 5
+    assert board.fields[48].value == 4
+
+    assert board.fields[49].value == 3
+    assert board.fields[50].value == 4
+    assert board.fields[51].value == 5
+    assert board.fields[52].value == 6
+    assert board.fields[53].value == 6
+    assert board.fields[54].value == 5
+    assert board.fields[55].value == 4
+    assert board.fields[56].value == 3
+    
+    assert board.fields[57].value == 2
+    assert board.fields[58].value == 3
+    assert board.fields[59].value == 4
+    assert board.fields[60].value == 5
+    assert board.fields[61].value == 5
+    assert board.fields[62].value == 4
+    assert board.fields[63].value == 3
+    assert board.fields[64].value == 2 
+    
 
 
 

@@ -14,7 +14,7 @@ class Board:
         self.name = name
         self.deep = deep + 1
         self.fields = []
-        for i in range(1, self.getMaxField() + 1):
+        for i in range(1, self.getMaxField()):
             if i == 1:
                 self.fields.append(Field(0))  # Field 0 doesn't exist
             self.fields.append(Field(i))
@@ -29,9 +29,9 @@ class Board:
         self.lastMove = None
 
     def getMaxField(self):
-        return self.maxLine * self.maxColumn
+        return (self.maxLine * self.maxColumn) + 1
 
-    def setPiece(self, piece):        
+    def setPiece(self, piece):
         if piece.color.id == Constant.WHITE:
             self.whitePieces.append(piece)
         else:
@@ -66,8 +66,8 @@ class Board:
         else:
             pieces = self.blackPieces
         for piece in pieces:
-          if piece.name == Constant.KING:
-            return piece
+            if piece.name == Constant.KING:
+                return piece
 
     def clone(self):
         board = Board(self.deep, self.name)
@@ -77,6 +77,8 @@ class Board:
             clone.setReachs()
             board.setPiece(clone)
         board.setCurrentReachs()
+        for field in self.fields:
+            board.fields[field.id].value = field.value 
         return board
 
     def setCurrentReachs(self):
@@ -108,7 +110,7 @@ class Board:
             opponentPieces = self.getPieces(Constant.WHITE)
         isCheck = False
         for piece in opponentPieces:
-            #if piece
+            # if piece
             currentReachs = piece.getCurrentReachs()
             for reach in currentReachs:
                 if king.field.id == reach:
@@ -123,3 +125,24 @@ class Board:
             else:
                 value -= piece.value
         self.value = value
+
+    def setFieldsValue(self):
+        line = 1
+        column = 1
+        lineValue = 0
+        middleUp = int(self.maxLine / 2) + 1
+        middleDown = int(self.maxLine / 2)
+        
+        for line in range(self.maxLine):
+            if line < middleDown:
+                lineValue += 1
+            elif line >= middleUp:
+                lineValue -= 1
+            columnValue = 0
+            for column in range(1, self.maxColumn + 1):
+                if column <= middleDown:
+                    columnValue += 1
+                elif column > middleUp:
+                    columnValue -= 1
+                fieldId = (line * self.maxColumn) + column
+                self.fields[fieldId].value = lineValue + columnValue
