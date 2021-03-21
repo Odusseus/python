@@ -196,3 +196,12 @@ def test_setCurrentReachs_With_1_Piece():
     king.setCurrentReachs(pieces)
 
     assert king.currentReachs == [8,6,3,2,1,4,7]
+
+def test_setPowerValue():
+  Config.Init(8)
+  king = King(Constant.WHITE, Constant.KINGWHITECODE, 5)
+  king.setReachs()
+
+  king.setPowerValue()
+
+  assert king.powerValue == 2236

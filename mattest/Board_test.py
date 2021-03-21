@@ -114,8 +114,13 @@ def test_clone():
   Config.Init(8)
   board = Board()
   kingWhite = King(Constant.WHITE, Constant.KINGWHITECODE, 1)
-  kingBlack = King(Constant.BLACK, Constant.KINGBLACKCODE, 2)
+  kingWhite.setReachs()
+  kingWhite.setPowerValue()
   board.setPiece(kingWhite)
+  
+  kingBlack = King(Constant.BLACK, Constant.KINGBLACKCODE, 2)
+  kingBlack.setReachs()
+  kingBlack.setPowerValue()
   board.setPiece(kingBlack)
 
   # Act

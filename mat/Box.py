@@ -13,6 +13,7 @@ class Box:
   def getKingBlack(self, fieldId = None):
      piece = King(Constant.BLACK, Constant.KINGBLACKCODE, fieldId)
      piece.setReachs()
+     piece.setPowerValue()
      return piece
 
   def getQueenBlack(self, fieldId = None):
@@ -33,6 +34,7 @@ class Box:
   def getKingWhite(self, fieldId = None):    
     piece = King(Constant.WHITE, Constant.KINGWHITECODE, fieldId)
     piece.setReachs()
+    piece.setPowerValue()
     return piece
 
   def getQueenWhite(self, fieldId = None):

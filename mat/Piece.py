@@ -18,6 +18,7 @@ class Piece(ABC):
         assert value != None
 
         self.board = Board()
+        self.board.setFieldsValue()
         Config.maxPiece += 1
         self.id = Config.maxPiece
         self.name = name
@@ -30,12 +31,14 @@ class Piece(ABC):
         self.reachs = []
         self.currentReachs = []
         self.value = value
+        self.powerValue = None
 
     def clone(self):
         id = None
         if self.field != None:
           id = self.field.id
-        clone = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+          raise Exception("TODO refactor correct piece type")
+        #clone = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
         return clone
 
     def setField(self, fieldId_or_fieldstring=None):
@@ -52,10 +55,11 @@ class Piece(ABC):
                     raise KeyError(message)
         self.field = Field(fieldId)
 
-    def getFieldReach(self, fieldId=None):
-        if fieldId == None:
-            fieldId = self.field.id
+    def getFieldReach(self, fieldId ):
+        #raise Exception("Piece.getFieldReach not implementeted")
         reach = []
+        if fieldId != None:
+          reach = self.reachs[fieldId]
         return reach
 
     def setReachs(self):
@@ -112,3 +116,13 @@ class Piece(ABC):
     
     def getCurrentReachs(self):
         return self.currentReachs   
+
+    def setPowerValue(self):
+        self.powerValue = self.value
+        for field in self.reachs:
+            if field == None:
+                continue
+
+            for fieldId in field:
+                value = self.board.fields[fieldId].value
+                self.powerValue += value
