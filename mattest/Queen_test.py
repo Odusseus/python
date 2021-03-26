@@ -21,3 +21,21 @@ def test_Queen_with_field_return_a_Queen_on_a_Field():
   assert result.field.color.name == Constant.BLACKNAME
   assert result.field.columnName == 'a'
   assert result.field.lineName == 1
+
+def test_Queen_clone_Return_a_Clone():
+    maxElement = 3
+    Config.Init(maxElement)
+    
+    queen = Queen(Constant.WHITE, Constant.KNIGHTWHITECODE)
+    result = queen.clone()
+    assert result.name == queen.name
+    assert result.value == queen.value
+    assert result.field == queen.field #is None because is not set
+    assert result.color.id == queen.color.id
+
+    queen = Queen(Constant.WHITE, Constant.KNIGHTWHITECODE, 1)
+    result = queen.clone()
+    assert result.name == queen.name
+    assert result.value == queen.value
+    assert result.field.id == queen.field.id
+    assert result.color.id == queen.color.id

@@ -21,3 +21,21 @@ def test_Pawn_with_field_return_a_Pawn_on_a_Field():
   assert result.field.color.name == Constant.BLACKNAME
   assert result.field.columnName == 'a'
   assert result.field.lineName == 1
+
+def test_Pawn_clone_Return_a_Clone():
+    maxElement = 3
+    Config.Init(maxElement)
+    
+    pawn = Pawn(Constant.WHITE, Constant.PAWNWHITECODE)
+    result = pawn.clone()
+    assert result.name == pawn.name
+    assert result.value == pawn.value
+    assert result.field == pawn.field #is None because is not set
+    assert result.color.id == pawn.color.id
+
+    pawn = Pawn(Constant.WHITE, Constant.PAWNWHITECODE, 1)
+    result = pawn.clone()
+    assert result.name == pawn.name
+    assert result.value == pawn.value
+    assert result.field.id == pawn.field.id
+    assert result.color.id == pawn.color.id

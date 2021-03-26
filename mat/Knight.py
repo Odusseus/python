@@ -22,5 +22,6 @@ class Knight(Piece):
         id = None
         if self.field != None:
           id = self.field.id
+          
         clone = Knight(self.color.id, self.code, id, self.value)
         return clone

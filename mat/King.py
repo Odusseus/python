@@ -19,6 +19,14 @@ class King(Piece):
             fieldId
         )
 
+    def clone(self):
+        id = None
+        if self.field != None:
+          id = self.field.id
+        
+        piece = King(self.color.id, self.code, id, self.value)
+        return piece
+
     def getFieldReach(self, fieldId=None):
         if fieldId == None:
             fieldId = self.field.id

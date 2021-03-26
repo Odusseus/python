@@ -6,8 +6,6 @@ from abc import ABC, abstractmethod
 from Color import Color
 from Field import Field
 from Board import Board
-from King import King
-
 
 class Piece(ABC):
 
@@ -39,20 +37,7 @@ class Piece(ABC):
         if self.field != None:
           id = self.field.id
         
-        if self.name == Constant.KING:
-          piece = King(self.color.id, self.code, id, self.value)
-        elif self.name == Constant.QUEEN:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        elif self.name == Constant.ROOK:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        elif self.name == Constant.BISHOP:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        elif self.name == Constant.KNIGHT:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        elif self.name == Constant.PAWN:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
-        else:
-          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
         return piece
 
     def setField(self, fieldId_or_fieldstring=None):
@@ -70,11 +55,11 @@ class Piece(ABC):
         self.field = Field(fieldId)
 
     def getFieldReach(self, fieldId ):
-        # raise Exception("Piece.getFieldReach not implementeted")
-        reach = []
-        if self.reachs != None:
-          reach = self.reachs[fieldId]
-        return reach
+        raise Exception("Piece.getFieldReach not implementeted")
+        # reach = []
+        # if self.reachs != None:
+        #   reach = self.reachs[fieldId]
+        # return reach
 
     def setReachs(self):
         if self.field == None or self.field.id == None:
@@ -108,7 +93,7 @@ class Piece(ABC):
             return reachs
         return []
 
-    def setValue(self, value):
+    def setValue(self, value=None):
         if value != None:
             self.value = value
         else:
