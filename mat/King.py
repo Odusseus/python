@@ -55,29 +55,5 @@ class King(Piece):
         if fieldReach.isSet:
             reach.append(fieldReach.id)
 
-        return reach
-
-    # TODO clean up
-    def clone(self):
-        id = None
-        if self.field != None:
-          id = self.field.id
-        clone = King(self.color.id, self.code, id, self.value)
-        return clone
-
-    def setCurrentReachs(self, pieces):
-        reachs = self.getReachs()
-        if pieces == None:
-            self.currentReachs = reachs
-            return
-
-        currentReachs = []
-        for reach in reachs:
-          add = True
-          for piece in pieces:
-            if reach == piece.field.id and piece.color.id == self.color.id:
-              add = False
-          if add: 
-            currentReachs.append(reach)
-        self.currentReachs = currentReachs
+        return reach   
 

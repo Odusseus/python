@@ -6,6 +6,7 @@ from abc import ABC, abstractmethod
 from Color import Color
 from Field import Field
 from Board import Board
+from King import King
 
 
 class Piece(ABC):
@@ -37,7 +38,21 @@ class Piece(ABC):
         id = None
         if self.field != None:
           id = self.field.id
-        piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        
+        if self.name == Constant.KING:
+          piece = King(self.color.id, self.code, id, self.value)
+        elif self.name == Constant.QUEEN:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        elif self.name == Constant.ROOK:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        elif self.name == Constant.BISHOP:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        elif self.name == Constant.KNIGHT:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        elif self.name == Constant.PAWN:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
+        else:
+          piece = Piece(self.name, self.shortName, self.color.id, self.code, self.value, id)
         return piece
 
     def setField(self, fieldId_or_fieldstring=None):
@@ -55,7 +70,7 @@ class Piece(ABC):
         self.field = Field(fieldId)
 
     def getFieldReach(self, fieldId ):
-        #raise Exception("Piece.getFieldReach not implementeted")
+        # raise Exception("Piece.getFieldReach not implementeted")
         reach = []
         if self.reachs != None:
           reach = self.reachs[fieldId]
@@ -74,7 +89,7 @@ class Piece(ABC):
                 if len(moves) == 0:
                     moves.append(None)
                 moves.append(self.getFieldReach(id))
-        #self.reachs = moves
+        # self.reachs = moves
         for move in moves:
             self.reachs.append(move)
         self.setField(saveFieldId)
@@ -110,9 +125,25 @@ class Piece(ABC):
             elif self.name == Constant.PAWN:
                 self.value = Constant.PAWNVALUE         
 
-    def setCurrentReachs(self, pieces):
-        self.currentReachs = []
+    # def setCurrentReachs(self, pieces):
+    #     self.currentReachs = []
     
+    def setCurrentReachs(self, pieces):
+        reachs = self.getReachs()
+        if pieces == None:
+            self.currentReachs = reachs
+            return
+
+        currentReachs = []
+        for reach in reachs:
+          add = True
+          for piece in pieces:
+            if reach == piece.field.id and piece.color.id == self.color.id:
+              add = False
+          if add: 
+            currentReachs.append(reach)
+        self.currentReachs = currentReachs
+
     def getCurrentReachs(self):
         return self.currentReachs   
 
