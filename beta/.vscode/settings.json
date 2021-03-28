@@ -8,7 +8,7 @@
     "xml:coverage/cov.xml",
     "--cov-report",
     "html:coverage",
-    "--cov=mat"
+    "--cov=src"
   ],
   "python.testing.unittestEnabled": true,
   "python.testing.pytestEnabled": true,
